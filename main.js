@@ -291,22 +291,19 @@ var swiper = new Swiper(".mySwiper", {
     mousewheel: true,
     keyboard: true,
 });
+// review
+let usertexts = document.getElementsByClassName("us_text");
+let userpics = document.getElementsByClassName("user_pic");
 
-var swiper = new Swiper(".test", {
-    cssMode: true,
-    slidesPerView: 3,
-    spaceBetween: 50,
-    // autoplay: {
-    //     delay: 2500,
-    //     disableOnInteraction: false,
-    // },
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-    },
-    pagination: {
-        el: ".swiper-pagination",
-    },
-    mousewheel: true,
-    keyboard: true,
-});
+function showreview(){
+     for(userpic of userpics){
+        userpic.classList.remove("activepic");
+     }
+     for(usertext of usertexts){
+        usertext.classList.remove("activetext");
+     }
+     let i =Array.from(userpics).indexOf(event.target);
+     console.log(i);
+     userpics[i].classList.add("activepic");
+     usertexts[i].classList.add("activetext");
+}
