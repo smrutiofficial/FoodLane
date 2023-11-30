@@ -36,7 +36,7 @@ git clone https://github.com/your-username/FoodLane.git
 ### Navigate to the Project Directory:
 ```bash
 
-cd restaurant-app
+cd FoodLane
 
 ```
 

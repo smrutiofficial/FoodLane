@@ -5,6 +5,7 @@ const card = [
         title: "Dal Makhani",
         des: "Rich Black lentil delicacy, prepared with lushes tomato gravy, cream and butter served with choice of breads or rice served with choice of breads or rice.",
         price: 219,
+        featured:false,
         rate: "3.9(54)"
     },
     {
@@ -13,6 +14,7 @@ const card = [
         title: "Spicy Mix Vegetable",
         des: "Seasonal vegetables tossed in rich indian spices",
         price: 149,
+        featured:false,
         rate: "4.4(88)"
     },
     {
@@ -21,6 +23,7 @@ const card = [
         title: "Masala Soya Chaap",
         des: "Soya chaap cooked with aromatic spices,onion & tomato gravy",
         price: 279,
+        featured:false,
         rate: "4.7(30)"
     },
     {
@@ -29,6 +32,7 @@ const card = [
         title: "Paneer Butter Masala",
         des: "Rich and spicy tomato Makhani Gravy with Cottage cheese finished with Butter",
         price: 279,
+        featured:false,
         rate: "4.3(43)"
     },
 
@@ -38,6 +42,7 @@ const card = [
         title: "Pao Bhaji",
         des: "Mumbai Style Spicy Mashed Vegetables Served With Buttery Bread Roll",
         price: 199,
+        featured:false,
         rate: "4.3(75)"
     },
     {
@@ -46,6 +51,7 @@ const card = [
         title: "Butter Chicken",
         des: "Smooth and rich tomato based makhani gravy with cream and butter with tandoori chicken",
         price: 349,
+        featured:true,
         rate: "4.0(88)"
     },
     {
@@ -54,6 +60,7 @@ const card = [
         title: "Special Veg Thali",
         des: "(Dal Makhani+ Paneer Of The Day+ Mix Veg + Raita + Rice+ 1 Butter Naan + 1 Butter Roti+ Gulab Jamun+ Salad)",
         price: 419,
+        featured:false,
         rate: "3.9(165)"
     },
     {
@@ -62,6 +69,7 @@ const card = [
         title: "Tangri Kebab",
         des: "Tender and succulent chicken drumstick, tandoori masala marination.",
         price: 399,
+        featured:false,
         rate: "4.3(131)"
     },
     {
@@ -70,6 +78,7 @@ const card = [
         title: "Punjabi Chole",
         des: "A classic dish from the Punjab, which is flavoured with a large assortment of spice powders.",
         price: 219,
+        featured:true,
         rate: "3.8(58)"
     },
     {
@@ -78,6 +87,7 @@ const card = [
         title: "Chicken Seekh Kebab",
         des: "Chicken on bone, malai marination, cooked in tandoor.",
         price: 369,
+        featured:false,
         rate: "4.8(64)"
     },
     {
@@ -86,6 +96,7 @@ const card = [
         title: "Dum Chicken Biryani Served With Raita & Salad",
         des: "Traditional slow cooked, flavoursome Chicken lag with Long Grain Basmati Rice Served with Raita.",
         price: 379,
+        featured:false,
         rate: "4.1(170)"
     },
     {
@@ -94,6 +105,7 @@ const card = [
         title: "Butter Chicken Parantha Roll",
         des: "Authentic butter chicken wrapped in a ulta tawa",
         price: 249,
+        featured:false,
         rate: "4.0(26)"
     },
     {
@@ -102,6 +114,7 @@ const card = [
         title: "Kadhai Paneer Gravy",
         des: "Prefect blend of onion tomato tadka and indian spices with Cottage Cheese and bell peppers.",
         price: 279,
+        featured:false,
         rate: "4.4(64)"
     },
     {
@@ -110,6 +123,7 @@ const card = [
         title: "Chilly Chicken Dry",
         des: "Made of chunks of boneless chicken mixed with dry red chilies, finely chopped ginger and garlic, onions and other Indo Chinese spices to make a spicy Indian flare dish along with the distinct traditional Chinese flavors.",
         price: 220,
+        featured:true,
         rate: "3.6(745)"
     },
     {
@@ -118,6 +132,7 @@ const card = [
         title: "Dragon Chicken",
         des: "Dragon chicken is a popular Indo Chinese non-vegetarian starter recipe. Dragon chicken is made from batter-fried chicken and then cooked in lots of spices.",
         price: 214,
+        featured:false,
         rate: "4.1(256)"
     },
     {
@@ -126,66 +141,35 @@ const card = [
         title: "Mexican Fiesta",
         des: "Serves 1 | Flavourful mix of red capsicum, green capsicum, jalapeno, onion, black olives, sweet corn and 100% mozzarella Cheese with a signature spice sprinkle & our flavourful pan sauce.",
         price: 319,
+        featured:true,
         rate: "4.3(228)"
     }
-]
-
-const featured = [
-    {
-        id: 1,
-        img: "./src/dish/3.jpg",
-        title: "Paneer Lababdar",
-        des: "Cottage cheese, tossed with rich and chunky makhani and cashewnut gravy",
-        price: 279,
-        rate: "4.2(105)"
-    },
-    {
-        id: 2,
-        img: "./src/dish/12.jpg",
-        title: "Dum Chicken Biryani Served With Raita & Salad",
-        des: "Traditional slow cooked, flavoursome Chicken lag with Long Grain Basmati Rice Served with Raita.",
-        price: 379,
-        rate: "4.1(170)"
-    },
-    {
-        id: 3,
-        img: "./src/dish/15.jpeg",
-        title: "Kadhai Paneer Gravy",
-        des: "Prefect blend of onion tomato tadka and indian spices with Cottage Cheese and bell peppers.",
-        price: 279,
-        rate: "4.4(64)"
-    },
-    {
-        id: 4,
-        img: "./src/dish/20.jpeg",
-        title: "Mexican Fiesta",
-        des: "Serves 1 | Flavourful mix of red capsicum, green capsicum, jalapeno, onion, black olives, sweet corn and 100% mozzarella Cheese with a signature spice sprinkle & our flavourful pan sauce.",
-        price: 319,
-        rate: "4.3(228)"
-    }
-
 ]
 
 const cardct2 = document.querySelector(".cardct")
-const display2 = featured.map((item, index) => {
-    return `
-    <div class="s2">
-         <div class="pici">
-         <img src=${item.img} alt="">
-         </div>
-         <p>
-        <img id="star" src="./src/star.svg">&nbsp
-         ${item.rate}
-         </p>
-         <p>${item.title}</p>
-         <p>${item.des}</p>
-         <p id="price"><i class="uil uil-rupee-sign"></i>${item.price}</p>
-         <button class="btn5">Add to Cart &nbsp <i class="uil uil-shopping-cart"></i></button>
-    </div>
-    `
+const display2 = card.map((item, index) => {
+    var {img,title,des,price,rate,featured}=item
+    if(featured==true){
+        return`
+        <div class="s2">
+             <div class="pici">
+             <img src=${img} alt="">
+             </div>
+             <p>
+             <img id="star" src="./src/star.svg">&nbsp
+             ${rate}
+             </p>
+             <p>${title}</p>
+             <p>${des}</p>
+             <p id="price"><i class="uil uil-rupee-sign"></i>${price}</p>
+             <button onClick="addtocart(${index})" class="btn5">Add to Cart &nbsp <i class="uil uil-shopping-cart"></i></button>
+        </div>
+        `  
+    }
+    
 })
 
-cardct2.innerHTML = display2;
+cardct2.innerHTML = display2.join("");
 // ---------------------------------------------------------------------------
 const cardct = document.querySelector(".m2")
 const display = card.map((item, index) => {
@@ -197,7 +181,7 @@ const display = card.map((item, index) => {
         <p>${item.title}</p>
         <p>${item.des}</p>
         <p id="price"><i class="uil uil-rupee-sign"></i>${item.price}</p>
-        <button onClick="ft(${index})" class="btn5">Add to Cart &nbsp <i class="uil uil-shopping-cart"></i></button>
+        <button onClick="addtocart(${index})" class="btn5">Add to Cart &nbsp <i class="uil uil-shopping-cart"></i></button>
     </div>
     `
 })
@@ -309,7 +293,7 @@ function showreview() {
 
 
 // add to cart
-let cart_num=document.querySelector(".cartno")
+let cart_num = document.querySelector(".cartno")
 let itemno = 0;
 const carts = document.querySelectorAll(".btn5");
 carts.forEach(cart => {
@@ -317,32 +301,60 @@ carts.forEach(cart => {
         cart.classList.add('add_cart');
         cart.innerText = `View in cart`;
         itemno++
-        cart_num.innerHTML=itemno
+        cart_num.innerHTML = itemno
     })
 })
 
 // cart
-let cartwraper = document.querySelector(".cart_wraper");
+let snav = document.querySelector(".nav");
+let cartwraper = document.querySelector(".cartsection");
 
 function ac_cart() {
     if (cartwraper.style.display === "none") {
-        cartwraper.style.display = "block";
+        cartwraper.style.display = "flex";
+        snav.style.display = "none";
     } else {
         cartwraper.style.display = "none";
+        snav.style.display = "flex";
     }
 }
 
 let list = [];
-function ft(key) {
-    // console.log(key);
-    if (list[key] == null) {
-        list[key] == card[key];
+const cart_data = document.querySelector(".cart_wraper");
+
+function addtocart(key) {
+    list.push({ ...card[key] });
+    displaycart();
+}
+
+function displaycart(key) {
+    let j = 0;
+    if (list.length == 0) {
+        cart_data.innerHTML = "your cart is empty";
     }
-    reload();
+    else {
+        const displaycart = list.map((item, index) => {
+            return `
+            <div class="cart_display">
+            <div class="cd_wraper">
+               <div class="cart_div_item">
+                  <img class="img_cart" src="${item.img}" alt="">
+
+                    <p class="item_cart_title">${item.title}</p>
+                    <p >${item.price}</p>
+                  <div class="counter_item">
+                      <span>-</span>
+                      <span>01</span>
+                      <span>+</span>
+                  </div>
+                  </div>
+              </div>
+          </div>
+            `
+        })
+
+        cart_data.innerHTML = displaycart;
+
+    }
 }
 
-function reload() {
-    list.forEach((value, key) => {
-
-    })
-}
