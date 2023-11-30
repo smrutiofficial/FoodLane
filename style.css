@@ -416,7 +416,10 @@ a {
     height: 16rem;
     border-radius: 0.5rem;
 }
-
+.s1:hover{
+    background: rgb(103, 65, 65);
+    color: #ffecec;
+}
 #reg4 {
     /* border: red solid; */
     font-size: 0.8rem;
@@ -823,7 +826,7 @@ footer {
     height: 100%;
 }
 
-#btn5 {
+.btn5 {
     margin-top: 5%;
     margin-bottom: 5%;
     background: rgb(103, 65, 65);
@@ -832,8 +835,12 @@ footer {
     width: 100%;
     height: 3.5rem;
     font-size: 1.2rem;
+    border-radius: 0.5rem;
 }
-
+.add_cart{
+    background: rgb(208, 174, 174);
+    color: #222222;
+}
 input::placeholder {
     color: rgb(147, 117, 117);
     font-weight: 600;
@@ -914,5 +921,27 @@ input[type="number"]::-webkit-outer-spin-button {
     background: #f0914832;
     border: rgb(103, 65, 65) solid;
 }
-
-
+.cart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cartno{
+    background: rgb(103, 65, 65);
+    height: 2rem;
+    width: 2rem;
+    color: #c7afaf;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+}
+.cart_wraper{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background:rgb(254, 225, 225);
+    z-index: 98;
+    display: none;
+}

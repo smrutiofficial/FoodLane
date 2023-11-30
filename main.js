@@ -180,15 +180,16 @@ const display2 = featured.map((item, index) => {
          <p>${item.title}</p>
          <p>${item.des}</p>
          <p id="price"><i class="uil uil-rupee-sign"></i>${item.price}</p>
-         <button id="btn5">Add to Cart &nbsp <i class="uil uil-shopping-cart"></i></button>
+         <button class="btn5">Add to Cart &nbsp <i class="uil uil-shopping-cart"></i></button>
     </div>
     `
 })
 
 cardct2.innerHTML = display2;
-
+// ---------------------------------------------------------------------------
 const cardct = document.querySelector(".m2")
 const display = card.map((item, index) => {
+
     return `
     <div class="s2">
     <div class="pici"><img src=${item.img} alt=""> </div>
@@ -196,13 +197,12 @@ const display = card.map((item, index) => {
         <p>${item.title}</p>
         <p>${item.des}</p>
         <p id="price"><i class="uil uil-rupee-sign"></i>${item.price}</p>
-        <button id="btn5">Add to Cart &nbsp <i class="uil uil-shopping-cart"></i></button>
+        <button onClick="ft(${index})" class="btn5">Add to Cart &nbsp <i class="uil uil-shopping-cart"></i></button>
     </div>
     `
 })
 
 cardct.innerHTML = display
-
 
 
 // navbar
@@ -222,7 +222,6 @@ window.addEventListener('scroll', () => {
     sectionEls.forEach(sectionEl => {
         if (window.scrollY >= sectionEl.offsetTop) {
             currentSection = sectionEl.id;
-            console.log(sectionEl);
         }
     })
     navlinks.forEach(navlink => {
@@ -295,15 +294,55 @@ var swiper = new Swiper(".mySwiper", {
 let usertexts = document.getElementsByClassName("us_text");
 let userpics = document.getElementsByClassName("user_pic");
 
-function showreview(){
-     for(userpic of userpics){
+function showreview() {
+    for (userpic of userpics) {
         userpic.classList.remove("activepic");
-     }
-     for(usertext of usertexts){
+    }
+    for (usertext of usertexts) {
         usertext.classList.remove("activetext");
-     }
-     let i =Array.from(userpics).indexOf(event.target);
-     console.log(i);
-     userpics[i].classList.add("activepic");
-     usertexts[i].classList.add("activetext");
+    }
+    let i = Array.from(userpics).indexOf(event.target);
+    console.log(i);
+    userpics[i].classList.add("activepic");
+    usertexts[i].classList.add("activetext");
+}
+
+
+// add to cart
+let cart_num=document.querySelector(".cartno")
+let itemno = 0;
+const carts = document.querySelectorAll(".btn5");
+carts.forEach(cart => {
+    cart.addEventListener('click', () => {
+        cart.classList.add('add_cart');
+        cart.innerText = `View in cart`;
+        itemno++
+        cart_num.innerHTML=itemno
+    })
+})
+
+// cart
+let cartwraper = document.querySelector(".cart_wraper");
+
+function ac_cart() {
+    if (cartwraper.style.display === "none") {
+        cartwraper.style.display = "block";
+    } else {
+        cartwraper.style.display = "none";
+    }
+}
+
+let list = [];
+function ft(key) {
+    // console.log(key);
+    if (list[key] == null) {
+        list[key] == card[key];
+    }
+    reload();
+}
+
+function reload() {
+    list.forEach((value, key) => {
+
+    })
 }
