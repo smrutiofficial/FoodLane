@@ -2,8 +2,9 @@
 
 > Live Demo : https://smrutiofficial.github.io/FoodLane/
 
-![preview](/src/pc1.png)  
+![preview](/src/ts1.png)  
 ![preview2](/src/pc2.png)  
+![preview](/src/ts2.png)  
 
 # FoodLane App Documentation
 
