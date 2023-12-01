@@ -25,6 +25,7 @@ Welcome to the documentation of FoodLane (Static Restaurant App)! This simple we
 - **Menu Display:** Display the restaurant's menu with enticing images and descriptions.
 - **Contact Information:** Easily find the contact details and location of the restaurant.
 - **Interactive Elements:** Use of JavaScript to create interactive features for a better user experience.
+
 ## Installation
 
 To run the restaurant app locally, follow these steps:

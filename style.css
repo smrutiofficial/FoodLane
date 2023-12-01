@@ -121,6 +121,7 @@ nav {
 
 }
 
+
 .herosec {
     /* border: red solid; */
     margin-top: 6rem;
@@ -713,7 +714,17 @@ form {
     background: rgb(114, 66, 66);
     color: rgb(247, 198, 198);
 }
-
+#btns4{
+    font-size: 1.5rem;
+    padding: 0.5rem 1.8rem;
+    border-radius: 0.5rem;
+    border: none;
+    width: 18rem;
+    margin-top: 1.5rem;
+    border: rgb(114, 66, 66) solid 5px;
+    background: rgb(114, 66, 66);
+    color: rgb(247, 198, 198);
+}
 .k7 {
     margin-top: 8rem;
     /* border: red solid; */
@@ -1102,4 +1113,72 @@ input[type="number"]::-webkit-outer-spin-button {
     width: 50rem;
     /* border: red solid; */
 
+}
+
+/* footer */
+.footer_wraper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    overflow: hidden;
+}
+.mainfooter {
+    /* border: red solid; */
+    height: 85%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.bottom_footer {
+    height: 15%;
+    text-align: center;
+}
+#fid{
+    color: #c7afaf;
+    font-size: 1.2rem;
+    font-weight: 600;
+    /* border: red solid; */
+    width: 50%;
+    transform: rotate(-90deg) translate(-12rem,2rem);
+    
+}
+.rname{
+    /* border: red solid; */
+    width: 6%;
+}
+.getint{
+    /* border: red solid; */
+    width: 25%;
+}
+.rcont p{
+    color: #c7afaf;
+    font-size: 4rem;
+    font-weight: 600;
+    width: 30%;
+    /* border: red solid; */
+    margin-left: 4rem;
+    padding-top: 2rem;
+}
+.menu_foot{
+    /* border: red solid; */
+    width: 25%;
+}
+.rcont{
+    /* border: red solid; */
+    width: 44%;
+
+}
+#ftilt{
+color: #ffc5bb;
+font-size: 1.8rem;
+text-transform: capitalize;
+font-weight: 500;
+margin-bottom: 1rem;
+padding-top: 4rem;
+}
+.menu_foot ul a,#feedback{
+    color: #ab9591;
+    padding-bottom: 0.3rem;
 }
