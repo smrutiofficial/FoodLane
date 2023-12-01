@@ -35,7 +35,6 @@ const card = [
         featured: false,
         rate: "4.3(43)"
     },
-
     {
         id: 5,
         img: "./src/dish/6.jpg",
@@ -145,7 +144,6 @@ const card = [
         rate: "4.3(228)"
     }
 ]
-
 const cardct2 = document.querySelector(".cardct")
 const display2 = card.map((item, index) => {
     var { img, title, des, price, rate, featured } = item
@@ -166,14 +164,11 @@ const display2 = card.map((item, index) => {
         </div>
         `
     }
-
 })
-
 cardct2.innerHTML = display2.join("");
 // ---------------------------------------------------------------------------
 const cardct = document.querySelector(".m2")
 const display = card.map((item, index) => {
-
     return `
     <div class="s2">
     <div class="pici"><img src=${item.img} alt=""> </div>
@@ -185,22 +180,16 @@ const display = card.map((item, index) => {
     </div>
     `
 })
-
 cardct.innerHTML = display
-
-
 // navbar
-
 let sectionEls = document.querySelectorAll("section")
 let navlinks = document.querySelectorAll(".nav ul a")
-
 navlinks.forEach(navlink => {
     navlink.addEventListener('click', () => {
         navlinks.forEach(nav => nav.classList.remove("active"))
         navlink.classList.add('active');
     })
 })
-
 let currentSection = "hero";
 window.addEventListener('scroll', () => {
     sectionEls.forEach(sectionEl => {
@@ -215,13 +204,10 @@ window.addEventListener('scroll', () => {
         }
     })
 })
-
 // counter
-
 const minus = document.querySelector(".minus")
 const plus = document.querySelector(".plus")
 const num = document.querySelector(".num")
-
 let a = 1;
 plus.addEventListener('click', () => {
     if (a < 12) {
@@ -232,7 +218,6 @@ plus.addEventListener('click', () => {
             a
         }
     }
-
     // a =(a<10)? "0" + a : a;
     num.innerText = a;
 })
@@ -243,20 +228,15 @@ minus.addEventListener('click', () => {
     } else {
         a
     }
-
     num.innerText = a;
 })
-
 function loader() {
     document.querySelector(".loader_con").classList.add('fade-out');
 }
-
 function fadeOut() {
     setInterval(loader, 3000)
 }
-
 window.onload = fadeOut;
-
 // =============================
 var swiper = new Swiper(".mySwiper", {
     cssMode: true,
@@ -277,7 +257,6 @@ var swiper = new Swiper(".mySwiper", {
 // review
 let usertexts = document.getElementsByClassName("us_text");
 let userpics = document.getElementsByClassName("user_pic");
-
 function showreview() {
     for (userpic of userpics) {
         userpic.classList.remove("activepic");
@@ -290,8 +269,6 @@ function showreview() {
     userpics[i].classList.add("activepic");
     usertexts[i].classList.add("activetext");
 }
-
-
 // add to cart
 let cart_num = document.querySelector(".cartno")
 let itemno = 0;
@@ -304,11 +281,9 @@ carts.forEach(cart => {
         cart_num.innerHTML = itemno
     })
 })
-
 // cart
 let snav = document.querySelector(".nav");
 let cartwraper = document.querySelector(".cartsection");
-
 function ac_cart() {
     if (cartwraper.style.display === "none") {
         cartwraper.style.display = "flex";
@@ -318,11 +293,9 @@ function ac_cart() {
         snav.style.display = "flex";
     }
 }
-
 let list = [];
 const cart_data = document.querySelector(".cart_wraper");
 const totalpricese = document.querySelector(".totalprice");
-
 function addtocart(key) {
     let sum = 0;
     list.push({ ...card[key] });
@@ -332,10 +305,8 @@ function addtocart(key) {
     }
     displaycart();
 }
-
 function displaycart(key) {
     let j = 0;
-
     if (list.length === 0) {
         cart_data.innerHTML = "Your cart is empty";
     } else {
@@ -357,15 +328,12 @@ function displaycart(key) {
                 </div>
             `;
         });
-
         cart_data.innerHTML = cartHTML.join("");
-
         // cart counter
         const minus_carts = document.querySelectorAll(".minus_cart");
         const dis_carts = document.querySelectorAll(".dis_cart");
         const plus_carts = document.querySelectorAll(".plus_cart");
         const total_prices = document.querySelectorAll(".total_price");
-
         minus_carts.forEach((minus_cart, index) => {
             minus_cart.addEventListener('click', () => {
                 let counter = parseInt(dis_carts[index].innerText, 10) || 0;
@@ -377,7 +345,6 @@ function displaycart(key) {
                 }
             });
         });
-
         plus_carts.forEach((plus_cart, index) => {
             plus_cart.addEventListener('click', () => {
                 let counter = parseInt(dis_carts[index].innerText, 10) || 0;
@@ -389,14 +356,12 @@ function displaycart(key) {
                 }
             });
         });
-
         function updateTotalPrice(index, counter) {
             const item = list[index];
             const totalPriceElement = total_prices[index];
             const totalPrice = item.price * counter;
             totalPriceElement.innerHTML = `<i class="uil uil-rupee-sign"></i>${totalPrice}`;
         }
-
         function updateTotal() {
             let sum = 0;
             for (let k = 0; k < list.length; k++) {
@@ -406,4 +371,3 @@ function displaycart(key) {
         }
     }
 }
-
