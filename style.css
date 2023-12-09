@@ -6,32 +6,39 @@
     /* border: red solid; */
     /* border: red solid 2px; */
 }
+
 body {
     background: rgb(254, 225, 225);
     width: 100vw;
     height: 100%;
 }
+
 #dishes {
     overflow: hidden;
     height: 100%;
 }
+
 #Chefs {
     padding-top: 8rem;
     overflow: hidden;
     height: 100vh;
 }
+
 #order {
     /* border: red solid; */
     padding-bottom: 5rem;
 }
+
 #menu {
     padding-top: 8rem;
 }
+
 section {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
 }
+
 nav {
     position: fixed;
     z-index: 99;
@@ -45,6 +52,7 @@ nav {
     border-radius: 10px;
     /* border: 1px solid rgba( 255, 255, 255, 0.18 ); */
 }
+
 .wrapper {
     display: flex;
     width: 100%;
@@ -53,6 +61,7 @@ nav {
     align-items: center;
     /* border: red solid ; */
 }
+
 .nav {
     display: flex;
     gap: 2rem;
@@ -62,6 +71,7 @@ nav {
     letter-spacing: 0.2rem;
     text-transform: uppercase;
 }
+
 .logo {
     font-size: 1.5rem;
     font-weight: 600;
@@ -69,18 +79,21 @@ nav {
     gap: 0.8rem;
     cursor: pointer;
 }
+
 #hlogo {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 0.8rem;
 }
+
 .cart {
     display: flex;
     font-size: 1.5rem;
     font-weight: 600;
     gap: 0.8rem;
 }
+
 .cart button {
     background: rgb(247, 198, 198);
     padding: 0.2rem 2rem;
@@ -89,18 +102,21 @@ nav {
     color: rgb(123, 85, 85);
     font-weight: 700;
 }
+
 .cart i {
     font-size: 1.8rem;
 }
+
 .designbg {
     position: absolute;
     right: 0;
-    background: rgb(147, 117, 117);
+    background: rgb(199, 165, 165);
     width: 50%;
     height: 100%;
     z-index: -1;
     clip-path: polygon(81% 0, 80% 0%, 100% 0, 100% 100%, 80% 100%, 20% 100%, 0 100%, 0 100%);
 }
+
 .herosec {
     /* border: red solid; */
     margin-top: 6rem;
@@ -110,18 +126,22 @@ nav {
     display: flex;
     justify-content: space-around;
 }
+
 #food {
     /* transform: translateX(10rem); */
     width: 60%;
 }
+
 .left {
     width: 50%;
     transform: translateX(10rem);
 }
+
 .op #detail {
     /* border: red solid; */
     width: 70%;
 }
+
 .right {
     /* border: green solid; */
     width: 50%;
@@ -130,12 +150,14 @@ nav {
     align-content: center;
     align-items: center;
 }
+
 .botomsec_hero {
     /* border: red solid; */
     height: 12vh;
     width: 100vw;
     display: flex;
 }
+
 .left_b {
     /* border: green solid; */
     display: flex;
@@ -146,12 +168,15 @@ nav {
     width: 50%;
     padding-left: 4rem;
 }
+
 #arrow {
     transform: translateX(10rem);
 }
+
 .cieclesec {
     display: flex;
 }
+
 .circle {
     width: 3rem;
     height: 3rem;
@@ -161,18 +186,22 @@ nav {
     background: rgb(103, 65, 65);
     border: rgb(247, 198, 198)solid;
 }
+
 .circle img {
     width: 100%;
     height: 100%;
 }
+
 .circle:nth-child(2) {
     /* border: red solid; */
     transform: translateX(-0.5rem);
 }
+
 .circle:nth-child(3) {
     /* border: red solid; */
     transform: translateX(-1rem);
 }
+
 .right_b {
     /* border: rgb(177, 37, 60) solid; */
     width: 50%;
@@ -182,9 +211,11 @@ nav {
     gap: 1.2rem;
     align-items: center;
 }
+
 .s_sec {
     display: flex;
 }
+
 #bmenu {
     outline: none;
     border: none;
@@ -196,17 +227,21 @@ nav {
     background: rgb(103, 65, 65);
     color: #ffffff;
 }
+
 #bold {
     font-weight: 700;
     font-size: 1.3rem;
 }
+
 #reg {
     font-weight: 600;
     color: rgb(132, 94, 94);
 }
+
 .uil-arrow-right {
     font-size: 1.5rem;
 }
+
 .context {
     /* border: red solid; */
     padding-left: 4rem;
@@ -215,24 +250,29 @@ nav {
     justify-content: center;
     flex-direction: column;
 }
+
 a {
     color: rgb(132, 94, 94);
 }
+
 .retragular {
     height: 15rem;
     width: 0.5rem;
     background: rgb(172, 106, 106);
 }
+
 .retragular2 {
     height: 3rem;
     width: 0.5rem;
     background: rgb(172, 106, 106);
 }
+
 .op {
     display: flex;
     gap: 2rem;
     align-items: center;
 }
+
 #bold2 {
     font-size: 4.5rem;
     text-transform: uppercase;
@@ -243,20 +283,24 @@ a {
     font-weight: 700;
     color: rgb(51, 39, 39);
 }
+
 .op:nth-child(2) {
     /* border: red solid; */
     margin-top: 1rem;
 }
+
 #reg2 {
     font-size: 3rem;
     font-weight: 500;
     color: rgb(123, 85, 85);
 }
+
 .buts {
     margin-top: 2.5rem;
     display: flex;
     gap: 2rem;
 }
+
 #btn2 {
     font-size: 1.5rem;
     padding: 0rem 2rem;
@@ -266,6 +310,7 @@ a {
     background: rgb(114, 66, 66);
     color: rgb(254, 225, 225);
 }
+
 #btn3 {
     font-size: 1.5rem;
     padding: 0.5rem 2rem;
@@ -275,21 +320,25 @@ a {
     color: rgb(114, 66, 66);
     background: rgb(254, 225, 225);
 }
+
 #detail {
     font-size: 1.3rem;
     width: 92%;
 }
+
 .mk {
     /* border: red solid; */
     display: flex;
     margin-top: 6rem;
     height: 80vh;
 }
+
 .t1 {
     width: 50%;
     height: 100%;
     /* border: rgb(75, 231, 96) solid; */
 }
+
 .t2 {
     width: 50%;
     height: 100%;
@@ -298,6 +347,7 @@ a {
     justify-content: center;
     align-items: center;
 }
+
 .wrp {
     display: flex;
     flex-direction: column;
@@ -309,12 +359,14 @@ a {
     padding-left: 10%;
     height: 100%;
 }
+
 .wrp p:nth-child(1) {
     font-weight: 600;
     font-size: 4.5rem;
     width: 100%;
     /* margin-bottom: 2rem; */
 }
+
 .active {
     padding: 0.2rem 1.2rem;
     border-radius: 0.3rem;
@@ -322,6 +374,7 @@ a {
     background: rgb(103, 65, 65);
     border: rgb(103, 65, 65) solid 5px;
 }
+
 .nav ul a {
     padding: 0.2rem 1.2rem;
     border-radius: 0.3rem;
@@ -329,14 +382,17 @@ a {
     /* color: rgb(247, 198, 198); */
     /* background: rgb(103, 65, 65); */
 }
+
 .uil-restaurant {
     font-size: 2rem;
 }
+
 .logo {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .wrp p:nth-child(2) {
     font-weight: 400;
     font-size: 1.4rem;
@@ -344,6 +400,7 @@ a {
     width: 88%;
     margin-bottom: 1rem;
 }
+
 .con {
     display: flex;
     flex-wrap: wrap;
@@ -353,6 +410,7 @@ a {
     justify-content: center;
     align-items: center;
 }
+
 .s1 {
     background: #ffecec;
     display: flex;
@@ -364,28 +422,34 @@ a {
     height: 18rem;
     border-radius: 0.5rem;
 }
+
 .s1:hover {
     background: rgb(103, 65, 65);
     color: #ffecec;
 }
+
 #reg4 {
     /* border: red solid; */
     font-size: 0.8rem;
     width: 80%;
 }
+
 .secdiv {
     flex-direction: column;
     display: flex;
     align-items: center;
 }
+
 .secdiv p:nth-child(1) {
     font-size: 3rem;
     font-weight: 600;
 }
+
 .secdiv p:nth-child(2) {
     width: 50%;
     text-align: center;
 }
+
 .m1 {
     display: flex;
     flex-wrap: wrap;
@@ -395,16 +459,20 @@ a {
     /* margin-top: 2rem; */
     /* border: red solid; */
 }
+
 .cardct {
     margin-top: 4rem;
 }
+
 .m2 {
     width: 100%;
     padding: 0rem 4rem;
 }
+
 .ko {
     margin-top: 8rem;
 }
+
 .wocon {
     /* border: red solid; */
     width: 100%;
@@ -412,6 +480,7 @@ a {
     justify-content: center;
     align-items: center;
 }
+
 .cef {
     display: flex;
     flex-direction: row;
@@ -420,34 +489,41 @@ a {
     gap: 5rem;
     margin-top: 2rem;
 }
+
 .cf {
     border-radius: 0.5rem;
     width: 20rem;
     height: 25rem;
     background: #ffffff;
 }
+
 .cf:nth-child(1),
 .cf:nth-child(3) {
     /* border: red solid; */
     transform: translateY(12rem);
 }
+
 .h6 {
     margin-top: 8rem;
 }
+
 #review {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
 }
+
 .k7 {
     /* border: red solid; */
     padding-bottom: 2rem;
 }
+
 .activepic {
     border: rgb(103, 65, 65) solid;
     padding: 0.2rem;
     transform: scale(1.15);
 }
+
 .rev_text {
     display: flex;
     flex-direction: column;
@@ -457,6 +533,7 @@ a {
     height: 28rem;
     /* border: red solid; */
 }
+
 .dsflex_sa {
     display: flex;
     text-align: center;
@@ -464,6 +541,7 @@ a {
     justify-content: space-around;
     /* border: red solid; */
 }
+
 .us_text {
     position: absolute;
     text-align: center;
@@ -474,18 +552,22 @@ a {
     width: 65%;
     display: none;
 }
+
 .us_text.activetext {
     display: block;
 }
+
 .us_text p {
     margin: 2rem 5rem;
     font-size: 1.6rem;
 }
+
 .us_text i {
     font-size: 4rem;
     margin-top: 2rem;
     color: #c7afaf;
 }
+
 .us_text span {
     /* border: red solid; */
     font-weight: 600;
@@ -493,6 +575,7 @@ a {
     font-size: 2.5rem;
     padding-bottom: 2rem;
 }
+
 .r_pic {
     /* border: red solid; */
     margin-top: 1.8rem;
@@ -502,18 +585,21 @@ a {
     justify-content: center;
     align-items: center;
 }
+
 .user_pic {
     width: 5rem;
     height: 5rem;
     object-fit: cover;
     border-radius: 50%;
 }
+
 .ts {
     height: 100%;
     width: 100%;
     background: #ffffff;
     border-radius: 0.5rem;
 }
+
 .cunter {
     width: 42rem;
     height: 3rem;
@@ -528,6 +614,7 @@ a {
     align-items: center;
     overflow: hidden;
 }
+
 .cunter span:nth-child(3) {
     border-left: rgb(103, 65, 65) solid;
     padding: 1rem 2rem;
@@ -537,10 +624,12 @@ a {
     font-weight: 600;
     cursor: pointer;
 }
+
 .cunter span:nth-child(2) {
     font-size: 1.3rem;
     font-weight: 600;
 }
+
 .cunter span:nth-child(1) {
     border-right: rgb(103, 65, 65) solid;
     padding: 1rem 2rem;
@@ -550,16 +639,19 @@ a {
     font-weight: 600;
     cursor: pointer;
 }
+
 #date {
     color: #ffecec;
     background: linear-gradient(to right, #ffecec 87%, rgb(103, 65, 65) 20%, rgb(103, 65, 65) 100%);
 }
+
 input[type="datetime-local"]::-webkit-calendar-picker-indicator {
     color: #ffecec;
     opacity: 1;
     width: 25px;
     height: 25px;
 }
+
 input {
     outline: none;
     border: none;
@@ -572,6 +664,7 @@ input {
     margin-bottom: 0.5rem;
     background: #ffecec;
 }
+
 #mes {
     height: 12rem;
     width: 38rem;
@@ -583,6 +676,7 @@ input {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
 }
+
 form {
     display: flex;
     gap: 2rem;
@@ -590,6 +684,7 @@ form {
     /* border: red solid; */
     justify-content: center;
 }
+
 #btn4 {
     font-size: 1.5rem;
     padding: 0.8rem 2rem;
@@ -601,7 +696,8 @@ form {
     background: rgb(114, 66, 66);
     color: rgb(247, 198, 198);
 }
-#btns4{
+
+#btns4 {
     font-size: 1.5rem;
     padding: 0.5rem 1.8rem;
     border-radius: 0.5rem;
@@ -612,32 +708,40 @@ form {
     background: rgb(114, 66, 66);
     color: rgb(247, 198, 198);
 }
+
 .k7 {
     margin-top: 8rem;
     /* border: red solid; */
 }
+
 label {
     color: rgb(147, 117, 117);
 }
+
 footer {
     background: rgb(103, 65, 65);
     width: 100vw;
     height: 40vh;
 }
+
 #picicon {
     font-size: 5rem;
 }
+
 .material-symbols-outlined {
     font-size: 4.5rem;
 }
+
 .s1 span {
     margin-bottom: 1rem;
 }
+
 .m2 {
     /* border: red solid; */
     /* column-gap: 2rem; */
     margin-top: 2rem;
 }
+
 .s2 {
     background: #ffecec;
     border: #ffecec solid;
@@ -653,6 +757,7 @@ footer {
     margin-bottom: 2rem;
     margin-right: 1rem;
 }
+
 .s2 p:nth-child(2) {
     text-align: right;
     font-weight: 500;
@@ -662,9 +767,11 @@ footer {
     align-items: center;
     /* border: red solid; */
 }
+
 #star {
     filter: invert(42%) sepia(30%) saturate(300%) hue-rotate(87deg) brightness(119%) contrast(119%);
 }
+
 .s2 p:nth-child(3) {
     font-weight: 600;
     font-size: 1.2rem;
@@ -678,6 +785,7 @@ footer {
     justify-content: start;
     /* align-items: center; */
 }
+
 .s2 p:nth-child(4) {
     margin-bottom: 0.5rem;
     text-align: left;
@@ -696,6 +804,7 @@ footer {
     width: 100%;
     /* border: red solid; */
 }
+
 #price {
     /* border: red solid; */
     font-size: 1.8rem;
@@ -703,6 +812,7 @@ footer {
     margin-top: 0.5rem;
     /* text-align: right; */
 }
+
 .pici {
     width: 100%;
     height: 10rem;
@@ -712,23 +822,28 @@ footer {
     margin-bottom: 1rem;
     background: rgb(137, 88, 88);
 }
+
 .pici img {
     object-fit: cover;
     width: 100%;
     height: 100%;
 }
+
 .uil-star {
     padding-right: 0.5rem;
 }
+
 .cf {
     /* border: red solid; */
     overflow: hidden;
 }
+
 .cf img {
     object-fit: cover;
     width: 100%;
     height: 100%;
 }
+
 .btn5 {
     margin-top: 5%;
     margin-bottom: 5%;
@@ -740,26 +855,32 @@ footer {
     font-size: 1.2rem;
     border-radius: 0.5rem;
 }
+
 .add_cart {
     background: rgb(208, 174, 174);
     color: #222222;
 }
+
 input::placeholder {
     color: rgb(147, 117, 117);
     font-weight: 600;
 }
+
 input {
     color: rgb(147, 117, 117);
     font-weight: 600;
 }
+
 #date {
     color: rgb(147, 117, 117);
     font-weight: 600;
 }
+
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
 }
+
 .loader_con {
     position: fixed;
     top: 0;
@@ -772,44 +893,54 @@ input[type="number"]::-webkit-outer-spin-button {
     align-items: center;
     justify-content: center;
 }
+
 .loader_con img {
     width: 55rem;
     height: auto;
 }
+
 .loader_con.fade-out {
     top: 110%;
     opacity: 0;
 }
+
 /* ===================== */
 .swiper {
     width: 100%;
     height: 88vh;
 }
+
 .swiper-button-next,
 .swiper-button-prev {
     color: rgb(103, 65, 65);
     font-size: 1rem;
     font-weight: 700;
 }
+
 .swiper-button-next {
     padding-right: 4rem;
 }
+
 .swiper-button-prev {
     padding-left: 4rem;
 }
+
 .swiper-pagination-bullet {
     background: #ab9591;
     width: 0.8rem;
     height: 0.8rem;
 }
+
 .swiper-pagination-bullet-active {
     background: rgb(103, 65, 65);
 }
+
 .s2:hover {
     filter: drop-shadow(16px 16px 30px #33333338);
     background: #f0914832;
     border: rgb(103, 65, 65) solid;
 }
+
 .cart {
     display: flex;
     justify-content: center;
@@ -820,6 +951,7 @@ input[type="number"]::-webkit-outer-spin-button {
     background: #c7afaf;
     cursor: pointer;
 }
+
 .cartno {
     background: rgb(103, 65, 65);
     height: 2rem;
@@ -831,12 +963,13 @@ input[type="number"]::-webkit-outer-spin-button {
     align-items: center;
     font-size: 1rem;
 }
+
 .cartsection {
     position: fixed;
     width: 100vw;
     height: 100%;
     overflow: hidden;
-    background: rgb(211, 186, 186);
+    background: rgb(254, 225, 225);
     z-index: 98;
     display: flex;
     flex-direction: column;
@@ -845,6 +978,7 @@ input[type="number"]::-webkit-outer-spin-button {
     /* border: red solid; */
     display: none;
 }
+
 .cart_wraper {
     width: 100vw;
     padding: 6rem 0rem;
@@ -855,6 +989,7 @@ input[type="number"]::-webkit-outer-spin-button {
     flex-direction: column;
     align-items: center;
 }
+
 .cartbtnarea {
     height: 20%;
     /* border: red solid; */
@@ -867,6 +1002,7 @@ input[type="number"]::-webkit-outer-spin-button {
     padding-top: 2rem; */
     color: #ffecec;
 }
+
 .orderfrom_cart {
     width: 50vw;
     height: 4rem;
@@ -875,6 +1011,7 @@ input[type="number"]::-webkit-outer-spin-button {
     align-items: center;
     /* border: red solid; */
 }
+
 .orderfrom_cart button {
     padding: 0.7rem 2rem;
     background: #c7afaf;
@@ -883,13 +1020,15 @@ input[type="number"]::-webkit-outer-spin-button {
     font-weight: 500;
     border-radius: 0.2rem;
 }
+
 .orderfrom_cart span {
     font-size: 2.5rem;
     font-weight: 500;
 }
+
 .minus_cart,
 .plus_cart {
-    width: 5rem;
+    width: 8rem;
     height: 2rem;
     color: rgb(103, 65, 65);
     background: rgb(211, 186, 186);
@@ -897,7 +1036,10 @@ input[type="number"]::-webkit-outer-spin-button {
     justify-content: center;
     align-items: center;
     font-size: 1.5rem;
+    border: none;
+    border-radius: 0.2rem;
 }
+
 .dis_cart {
     font-size: 1rem;
     font-weight: 600;
@@ -907,14 +1049,16 @@ input[type="number"]::-webkit-outer-spin-button {
     justify-content: center;
     align-items: center;
 }
+
 .counter_item {
     border-radius: 0.2rem;
     width: 6rem;
     display: flex;
-    margin-right: 4rem;
+    margin-right: 1rem;
     justify-content: space-between;
     cursor: pointer;
 }
+
 .img_cart {
     overflow: hidden;
     margin-left: 4rem;
@@ -925,6 +1069,7 @@ input[type="number"]::-webkit-outer-spin-button {
     border-radius: 0;
     background: rgb(103, 65, 65);
 }
+
 .item_cart_title {
     font-weight: 600;
     /* border: red solid; */
@@ -932,6 +1077,7 @@ input[type="number"]::-webkit-outer-spin-button {
     text-align: center;
     color: #ffecec;
 }
+
 .cart_div_item {
     display: flex;
     justify-content: space-between;
@@ -943,6 +1089,7 @@ input[type="number"]::-webkit-outer-spin-button {
     width: 50rem;
     /* border: red solid; */
 }
+
 /* footer */
 .footer_wraper {
     display: flex;
@@ -951,6 +1098,7 @@ input[type="number"]::-webkit-outer-spin-button {
     height: 100%;
     overflow: hidden;
 }
+
 .mainfooter {
     /* border: red solid; */
     height: 85%;
@@ -958,28 +1106,33 @@ input[type="number"]::-webkit-outer-spin-button {
     flex-direction: row;
     justify-content: space-between;
 }
+
 .bottom_footer {
     height: 15%;
     text-align: center;
 }
-#fid{
+
+#fid {
     color: #c7afaf;
     font-size: 1.2rem;
     font-weight: 600;
     /* border: red solid; */
     width: 50%;
-    transform: rotate(-90deg) translate(-12rem,2rem);
-    
+    transform: rotate(-90deg) translate(-12rem, 2rem);
+
 }
-.rname{
+
+.rname {
     /* border: red solid; */
     width: 6%;
 }
-.getint{
+
+.getint {
     /* border: red solid; */
     width: 25%;
 }
-.rcont p{
+
+.rcont p {
     color: #c7afaf;
     font-size: 4rem;
     font-weight: 600;
@@ -988,23 +1141,46 @@ input[type="number"]::-webkit-outer-spin-button {
     margin-left: 4rem;
     padding-top: 2rem;
 }
-.menu_foot{
+
+.menu_foot {
     /* border: red solid; */
     width: 25%;
 }
-.rcont{
+
+.rcont {
     /* border: red solid; */
     width: 44%;
 }
-#ftilt{
-color: #ffc5bb;
-font-size: 1.8rem;
-text-transform: capitalize;
-font-weight: 500;
-margin-bottom: 1rem;
-padding-top: 4rem;
+
+#ftilt {
+    color: #ffc5bb;
+    font-size: 1.8rem;
+    text-transform: capitalize;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    padding-top: 4rem;
 }
-.menu_foot ul a,#feedback{
+
+.menu_foot ul a,
+#feedback {
     color: #ab9591;
     padding-bottom: 0.3rem;
+}
+
+.placetotal {
+    /* border: red solid; */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: right;
+}
+.timesx{
+margin-right:4rem ;
+height: 3rem;
+width: 2.5rem;
+font-size: 1.5rem;
+border: none;
+border-radius: 0.5rem;
+background: rgb(181, 123, 123);
+color: #ffecec;
 }

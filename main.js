@@ -144,28 +144,6 @@ const card = [
         rate: "4.3(228)"
     }
 ]
-const cardct2 = document.querySelector(".cardct")
-const display2 = card.map((item, index) => {
-    var { img, title, des, price, rate, featured } = item
-    if (featured == true) {
-        return `
-        <div class="s2">
-             <div class="pici">
-             <img src=${img} alt="">
-             </div>
-             <p>
-             <img id="star" src="./src/star.svg">&nbsp
-             ${rate}
-             </p>
-             <p>${title}</p>
-             <p>${des}</p>
-             <p id="price"><i class="uil uil-rupee-sign"></i>${price}</p>
-             <button onClick="addtocart(${index})" class="btn5">Add to Cart &nbsp <i class="uil uil-shopping-cart"></i></button>
-        </div>
-        `
-    }
-})
-cardct2.innerHTML = display2.join("");
 // ---------------------------------------------------------------------------
 const cardct = document.querySelector(".m2")
 const display = card.map((item, index) => {
@@ -176,11 +154,11 @@ const display = card.map((item, index) => {
         <p>${item.title}</p>
         <p>${item.des}</p>
         <p id="price"><i class="uil uil-rupee-sign"></i>${item.price}</p>
-        <button onClick="addtocart(${index})" class="btn5">Add to Cart &nbsp <i class="uil uil-shopping-cart"></i></button>
+        <button onClick="addtocart(${index})" class="btn5"> Add to Cart &nbsp <i class="uil uil-shopping-cart"></i></button>
     </div>
     `
 })
-cardct.innerHTML = display
+cardct.innerHTML = display.join("");
 // navbar
 let sectionEls = document.querySelectorAll("section")
 let navlinks = document.querySelectorAll(".nav ul a")
@@ -265,25 +243,17 @@ function showreview() {
         usertext.classList.remove("activetext");
     }
     let i = Array.from(userpics).indexOf(event.target);
-    console.log(i);
+    // console.log(i);
     userpics[i].classList.add("activepic");
     usertexts[i].classList.add("activetext");
 }
-// add to cart
-let cart_num = document.querySelector(".cartno")
-let itemno = 0;
-const carts = document.querySelectorAll(".btn5");
-carts.forEach(cart => {
-    cart.addEventListener('click', () => {
-        cart.classList.add('add_cart');
-        cart.innerText = `View in cart`;
-        itemno++
-        cart_num.innerHTML = itemno
-    })
-})
+
+
+
 // cart
 let snav = document.querySelector(".nav");
 let cartwraper = document.querySelector(".cartsection");
+
 function ac_cart() {
     if (cartwraper.style.display === "none") {
         cartwraper.style.display = "flex";
@@ -293,20 +263,51 @@ function ac_cart() {
         snav.style.display = "flex";
     }
 }
+
+
+// add to cart
+let cart_num = document.querySelector(".cartno")
+let itemno = 0;
+const cartButtons = document.querySelectorAll(".btn5");
+
 let list = [];
 const cart_data = document.querySelector(".cart_wraper");
 const totalpricese = document.querySelector(".totalprice");
+
+cartButtons.forEach((cat, index) => {
+    cat.addEventListener("click", (event) => {
+        cat.classList.add("add_cart");
+        cat.innerHTML = `view in cart`;
+        // console.log(index);
+    });
+});
+
 function addtocart(key) {
+    // console.log(id);
     let sum = 0;
-    list.push({ ...card[key] });
-    for (let k = 0; k < list.length; k++) {
-        sum = sum + list[k].price;
+    const cartButton = cartButtons[key];
+    // console.log(cartButton.classList);
+    if (!cartButton.classList.contains('add_cart')) {
+        list.push({ ...card[key] });
+        for (let k = 0; k < list.length; k++) {
+            sum = sum + list[k].price;
+        }
+        cartButton.classList.add("add_cart");
+        cartButton.innerHTML = `view in cart`;
         totalpricese.innerHTML = `<i class="uil uil-rupee-sign"></i>${sum}`;
+        displaycart(cartButton);
+        itemno++;
+        cart_num.innerHTML = itemno;
+
+    } else {
+        alert("Item already in cart")
     }
-    displaycart();
 }
-function displaycart(key) {
-    let j = 0;
+
+
+
+
+function displaycart(cartButton) {
     if (list.length === 0) {
         cart_data.innerHTML = "Your cart is empty";
     } else {
@@ -323,12 +324,14 @@ function displaycart(key) {
                                 <p class="dis_cart" data-index="${index}">01</p>
                                 <button class="plus_cart" data-index="${index}">+</button>
                             </div>
+                            <button class="timesx"><i class="uil uil-trash-alt"></i></button>
                         </div>
                     </div>
                 </div>
             `;
         });
         cart_data.innerHTML = cartHTML.join("");
+
         // cart counter
         const minus_carts = document.querySelectorAll(".minus_cart");
         const dis_carts = document.querySelectorAll(".dis_cart");
@@ -345,6 +348,30 @@ function displaycart(key) {
                 }
             });
         });
+
+        // remove from cart
+        const timesx = document.querySelectorAll(".timesx");
+
+        timesx.forEach((timesx, index) => {
+            timesx.addEventListener('click', () => {
+                // Remove the item at the current index
+                const removedItem = list[index];
+
+                list.splice(index, 1);
+                displaycart();
+                updateTotal();
+                itemno--;
+                cart_num.innerHTML = itemno;
+             
+                // Find the index of the removedItem in the original card array
+                const originalIndex = card.findIndex(item => item.id === removedItem.id);
+
+                // Change button text back to "Add to Cart" for the corresponding button
+                cartButtons[originalIndex].classList.remove("add_cart");
+                cartButtons[originalIndex].innerHTML = `Add to Cart &nbsp <i class="uil uil-shopping-cart"></i>`;
+            });
+        });
+
         plus_carts.forEach((plus_cart, index) => {
             plus_cart.addEventListener('click', () => {
                 let counter = parseInt(dis_carts[index].innerText, 10) || 0;
@@ -371,3 +398,4 @@ function displaycart(key) {
         }
     }
 }
+
