@@ -1,10 +1,9 @@
-> Live Demo : https://precious-alpaca-e4a592.netlify.app/
-or
-> Live Demo : https://smrutiofficial.github.io/FoodLane/
+> Live Demo : [netlify](https://precious-alpaca-e4a592.netlify.app/) or [github](https://smrutiofficial.github.io/FoodLane/)
 
 ![preview](/src/demo1.png)  
 ![preview2](/src/demo2.png)  
-![preview](/src/demo3.png)  
+![preview](/src/demo4.png)  
+![preview](/src/demo5.png)
 
 # FoodLane App Documentation
 

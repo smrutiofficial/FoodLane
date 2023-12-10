@@ -184,7 +184,7 @@ nav {
     border-radius: 50%;
     object-fit: cover;
     background: rgb(103, 65, 65);
-    border: rgb(247, 198, 198)solid;
+    border: rgb(199, 165, 165)solid;
 }
 
 .circle img {
@@ -687,7 +687,7 @@ form {
 
 #btn4 {
     font-size: 1.5rem;
-    padding: 0.8rem 2rem;
+    padding: 0.8rem 0.8rem;
     border-radius: 0.5rem;
     border: none;
     width: 18rem;

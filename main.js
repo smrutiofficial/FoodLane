@@ -137,7 +137,7 @@ const card = [
     {
         id: 16,
         img: "./src/dish/20.jpeg",
-        title: "Mexican Fiesta",
+        title: "Mexican Pizza",
         des: "Serves 1 | Flavourful mix of red capsicum, green capsicum, jalapeno, onion, black olives, sweet corn and 100% mozzarella Cheese with a signature spice sprinkle & our flavourful pan sauce.",
         price: 319,
         featured: true,
@@ -274,13 +274,6 @@ let list = [];
 const cart_data = document.querySelector(".cart_wraper");
 const totalpricese = document.querySelector(".totalprice");
 
-cartButtons.forEach((cat, index) => {
-    cat.addEventListener("click", (event) => {
-        cat.classList.add("add_cart");
-        cat.innerHTML = `view in cart`;
-        // console.log(index);
-    });
-});
 
 function addtocart(key) {
     // console.log(id);
