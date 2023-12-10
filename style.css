@@ -3,6 +3,8 @@
     padding: 0%;
     font-family: 'Poppins', sans-serif;
     scroll-behavior: smooth;
+    scrollbar-color: #644241 #644241;
+    scrollbar-width: thin;
     /* border: red solid; */
     /* border: red solid 2px; */
 }
@@ -11,6 +13,7 @@ body {
     background: rgb(254, 225, 225);
     width: 100vw;
     height: 100%;
+    overflow-x: hidden;
 }
 
 #dishes {
@@ -85,6 +88,7 @@ nav {
     justify-content: center;
     align-items: center;
     gap: 0.8rem;
+    text-decoration: none;
 }
 
 .cart {
@@ -664,6 +668,35 @@ input {
     margin-bottom: 0.5rem;
     background: #ffecec;
 }
+select{
+    outline: none;
+    border: none;
+    /* width: 38rem; */
+    height: 3rem;
+    border-radius: 0.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    background: #ffecec;
+    cursor: pointer;
+}
+
+
+#specialRequests{
+    outline: none;
+    border: none;
+    width: 38rem;
+    height: 10rem;
+    border-radius: 0.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 1rem;
+    resize: none;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    background: #ffecec;
+}
 
 #mes {
     height: 12rem;
@@ -697,9 +730,9 @@ form {
     color: rgb(247, 198, 198);
 }
 
-#btns4 {
+#btns4,#btns56 {
     font-size: 1.5rem;
-    padding: 0.5rem 1.8rem;
+    padding: 0.5rem 1.3rem;
     border-radius: 0.5rem;
     border: none;
     width: 18rem;
@@ -1183,4 +1216,54 @@ border: none;
 border-radius: 0.5rem;
 background: rgb(181, 123, 123);
 color: #ffecec;
+}
+.cusmrec{
+    display: flex;
+    flex-direction: column;
+}
+.form-group{
+    display: flex;
+    flex-direction: column;
+}
+#reservationDate,#reservationTime {
+    background: linear-gradient(to right, #ffecec 87%, #724242 20%, #724242 100%);
+}
+::-webkit-calendar-picker-indicator{
+    color: #ffecec;
+fill: #ffecec;
+font-size: 1.2rem;
+filter: invert();
+}
+input[type="date"]::-moz-calendar-box {
+    /* Styles for the calendar drop-down arrow in Firefox */
+    color: #ffecec;
+    background-color: #ffecec;
+    font-size: 1.2rem;
+    filter: invert();
+}
+
+/* Track */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background-color: #644241;
+    height: 0rem;
+    border-radius: 0.2rem;
+}
+
+::-webkit-scrollbar-track-piece:start {
+    background-color: #644241;
+}
+
+.btnwrap_form{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    /* border: red solid; */
+}
+label{
+    padding-left: 1rem;
 }

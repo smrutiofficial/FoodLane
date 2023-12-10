@@ -182,32 +182,7 @@ window.addEventListener('scroll', () => {
         }
     })
 })
-// counter
-const minus = document.querySelector(".minus")
-const plus = document.querySelector(".plus")
-const num = document.querySelector(".num")
-let a = 1;
-plus.addEventListener('click', () => {
-    if (a < 12) {
-        a++;
-        if (a < 10) {
-            a = "0" + a
-        } else {
-            a
-        }
-    }
-    // a =(a<10)? "0" + a : a;
-    num.innerText = a;
-})
-minus.addEventListener('click', () => {
-    if (a > 1) {
-        a--
-        a = (a < 10) ? "0" + a : a;
-    } else {
-        a
-    }
-    num.innerText = a;
-})
+
 function loader() {
     document.querySelector(".loader_con").classList.add('fade-out');
 }
@@ -355,7 +330,7 @@ function displaycart(cartButton) {
                 updateTotal();
                 itemno--;
                 cart_num.innerHTML = itemno;
-             
+
                 // Find the index of the removedItem in the original card array
                 const originalIndex = card.findIndex(item => item.id === removedItem.id);
 
@@ -392,3 +367,58 @@ function displaycart(cartButton) {
     }
 }
 
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Get the form element
+    var reservationForm = document.getElementById('reservationForm');
+    var btnSubmit = document.getElementById('btns4');
+
+
+    reservationForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        // Handle form submission...
+    });
+    function reset() {
+         // Clear all form fields
+         reservationForm.reset(); 
+    }
+    btnSubmit.addEventListener('click', function () {
+
+        // Get the values from the form inputs
+        var customerName = document.getElementById('customerName').value;
+        var customerEmail = document.getElementById('customerEmail').value;
+        var customerPhone = document.getElementById('customerPhone').value;
+        var specialRequests = document.getElementById('specialRequests').value;
+        var reservationDate = document.getElementById('reservationDate').value;
+        var reservationTime = document.getElementById('reservationTime').value;
+        var partySize = document.getElementById('partySize').value;
+        var occasion = document.getElementById('occasion').value;
+
+        // Display the alert with the customer's name
+        var alertMessage = "Mr. " + customerName + ", your request is submitted.\n\n";
+        alertMessage += "Email: " + customerEmail + "\n";
+        alertMessage += "Phone: " + customerPhone + "\n";
+        alertMessage += "Special Requests: " + specialRequests + "\n";
+        alertMessage += "Date: " + reservationDate + "\n";
+        alertMessage += "Time: " + reservationTime + "\n";
+        alertMessage += "Party Size: " + partySize + "\n";
+        alertMessage += "Occasion: " + occasion;
+
+        alert(alertMessage);
+        // Redirect to another page
+        window.location.href = '/'; // Replace with your desired URL
+    });
+});
+
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetElement = document.querySelector(this.getAttribute('href'));
+        window.scrollTo({
+            top: targetElement.offsetTop,
+            behavior: 'smooth'
+        });
+    });
+});

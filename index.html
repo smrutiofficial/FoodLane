@@ -32,7 +32,7 @@
                 <ul><a class="" href="#dishes">Dishes</a></ul>
                 <ul><a class="" href="#Chefs">About</a></ul>
                 <ul><a class="" href="#review">Review</a></ul>
-                <ul><a class="" href="#order">Order</a></ul>
+                <ul><a class="" href="#reservation">Booking</a></ul>
             </div>
             <div class="cart" onclick="ac_cart()">
                 <i class="uil uil-shopping-cart-alt"></i>
@@ -316,44 +316,88 @@
             </div>
         </div>
     </section>
-    <section id="order">
-        <div class="secdiv k7">
-            <p>Order now</p>
-        </div>
-        <form>
-            <div class="f1">
-                <label for="">Your Name</label><br>
-                <input type="text" placeholder="Name">
-                <br>
-                <label for="">Your Order</label><br>
-                <input type="text" placeholder="Item Name">
-                <br>
-                <label for="">How Much</label><br>
-                <div class="cunter">
-                    <span class="minus">-</span>
-                    <span class="num">01</span>
-                    <span class="plus">+</span>
+
+    <!-- Reservation Section -->
+    <section id="reservation" class="reservation-section">
+        <div class="container">
+            <div class="secdiv k7">
+                <p>Make a Reservation</p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur velit soluta rem possimus veritatis
+                    veniam doloribus eos totam enim aut.</p>
+            </div>
+
+            <!-- Reservation Form -->
+            <form id="reservationForm" class="reservation-form" method="post">
+
+                <!-- Customer Information -->
+                <div class="cusmrec">
+                    <div class="form-group">
+                        <label for="customerName">Your Name:</label>
+                        <input type="text" id="customerName" name="customerName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerEmail">Your Email:</label>
+                        <input type="email" id="customerEmail" name="customerEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerPhone">Your Phone:</label>
+                        <input type="tel" id="customerPhone" name="customerPhone" required>
+                    </div>
+
+                    <!-- Additional Comments -->
+                    <div class="form-group">
+                        <label for="specialRequests">Special Requests:</label>
+                        <textarea id="specialRequests" name="specialRequests" rows="4"
+                            placeholder="Any special requests or notes..."></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="btnwrap_form">
+                        <button type="submit" onclick="submit()" id="btns4" class="btn btn-primary">Submit</button>
+                        <button onclick="reset()" id="btns56" class="btnClear">clear</button>
+                    </div>
                 </div>
-                <label for="">Your Address</label><br>
-                <textarea id="mes" type="text"></textarea>
-                <br>
-                <button id="btns4">Order <i class="uil uil-utensils-alt"></i></button>
-            </div>
-            <div class="f2">
-                <label for="">Your Number</label><br>
-                <input type="number" placeholder="Mobile Number">
-                <br>
-                <label for="">Additional Food</label><br>
-                <input type="text" placeholder="Extra item">
-                <br>
-                <label for="">Date And Time</label><br>
-                <input id="date" type="datetime-local">
-                <br>
-                <label for="">Your Message</label><br>
-                <textarea id="mes" type="text"></textarea>
-            </div>
-        </form>
+
+                <!-- Date and Time Selection -->
+                <div class="cusmrec">
+                    <div class="form-group">
+                        <label for="reservationDate">Select Date:</label>
+                        <input type="date" id="reservationDate" name="reservationDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reservationTime">Select Time:</label>
+                        <input type="time" id="reservationTime" name="reservationTime">
+                    </div>
+
+                    <!-- Party Size -->
+                    <div class="form-group">
+                        <label for="partySize">Party Size:</label>
+                        <select id="partySize" name="partySize" required>
+                            <option value="1">Select</option>
+                            <option value="2">2 people</option>
+                            <option value="3">3 people</option>
+                            <option value="3">4 people</option>
+                            <option value="3">5 people</option>
+                            <option value="3">10 people+</option>
+                            <option value="3">20 people+</option>
+                            <!-- Add more options as needed -->
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="occasion">Special Occasion:</label>
+                        <select id="occasion" name="occasion">
+                            <option value="">Select</option>
+                            <option value="birthday">Birthday</option>
+                            <option value="anniversary">Anniversary</option>
+                            <!-- Add more options as needed -->
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
     </section>
+
     <!-- loader -->
     <div class="loader_con">
         <img src="./src/food.gif" alt="">
