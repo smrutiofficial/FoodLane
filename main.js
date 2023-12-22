@@ -3,6 +3,7 @@ const card = [
         id: 1,
         img: "./src/dish/1.jpg",
         title: "Dal Makhani",
+        tagline: "Rich lentils, tomato gravy, cream delight.",
         des: "Rich Black lentil delicacy, prepared with lushes tomato gravy, cream and butter served with choice of breads or rice served with choice of breads or rice.",
         price: 219,
         featured: false,
@@ -12,7 +13,8 @@ const card = [
         id: 2,
         img: "./src/dish/2.png",
         title: "Spicy Mix Vegetable",
-        des: "Seasonal vegetables tossed in rich indian spices",
+        tagline: "Seasonal veggies in rich Indian spices.",
+        des: "Seasonal vegetables tossed in rich Indian spices",
         price: 149,
         featured: false,
         rate: "4.4(88)"
@@ -21,7 +23,8 @@ const card = [
         id: 3,
         img: "./src/dish/5.jpg",
         title: "Masala Soya Chaap",
-        des: "Soya chaap cooked with aromatic spices,onion & tomato gravy",
+        tagline: "Soya chaap, aromatic spices, tomato gravy.",
+        des: "Soya chaap cooked with aromatic spices, onion & tomato gravy",
         price: 279,
         featured: false,
         rate: "4.7(30)"
@@ -30,6 +33,7 @@ const card = [
         id: 4,
         img: "./src/dish/4.jpg",
         title: "Paneer Butter Masala",
+        tagline: "Spicy tomato Makhani, Cottage cheese delight.",
         des: "Rich and spicy tomato Makhani Gravy with Cottage cheese finished with Butter",
         price: 279,
         featured: false,
@@ -39,6 +43,7 @@ const card = [
         id: 5,
         img: "./src/dish/6.jpg",
         title: "Pao Bhaji",
+        tagline: "Mumbai Style Spicy Mashed Vegetables Delight.",
         des: "Mumbai Style Spicy Mashed Vegetables Served With Buttery Bread Roll",
         price: 199,
         featured: false,
@@ -48,7 +53,8 @@ const card = [
         id: 6,
         img: "./src/dish/7.jpg",
         title: "Butter Chicken",
-        des: "Smooth and rich tomato based makhani gravy with cream and butter with tandoori chicken",
+        tagline: "Smooth tomato Makhani, tandoori chicken delight.",
+        des: "Smooth and rich tomato-based makhani gravy with cream and butter with tandoori chicken",
         price: 349,
         featured: true,
         rate: "4.0(88)"
@@ -57,6 +63,7 @@ const card = [
         id: 7,
         img: "./src/dish/8.jpg",
         title: "Special Veg Thali",
+        tagline: "Dal Makhani, Paneer, Mix Veg, Indian feast.",
         des: "(Dal Makhani+ Paneer Of The Day+ Mix Veg + Raita + Rice+ 1 Butter Naan + 1 Butter Roti+ Gulab Jamun+ Salad)",
         price: 419,
         featured: false,
@@ -66,7 +73,8 @@ const card = [
         id: 8,
         img: "./src/dish/9.jpg",
         title: "Tangri Kebab",
-        des: "Tender and succulent chicken drumstick, tandoori masala marination.",
+        tagline: "Tender chicken drumstick, tandoori marination.",
+        des: "Tender and succulent chicken drumstick, tandoori masala marination",
         price: 399,
         featured: false,
         rate: "4.3(131)"
@@ -75,7 +83,8 @@ const card = [
         id: 9,
         img: "./src/dish/10.jpg",
         title: "Punjabi Chole",
-        des: "A classic dish from the Punjab, which is flavoured with a large assortment of spice powders.",
+        tagline: "Classic Punjab dish, flavorful spice blend.",
+        des: "A classic dish from the Punjab, which is flavored with a large assortment of spice powders",
         price: 219,
         featured: true,
         rate: "3.8(58)"
@@ -84,7 +93,8 @@ const card = [
         id: 10,
         img: "./src/dish/11.jpeg",
         title: "Chicken Seekh Kebab",
-        des: "Chicken on bone, malai marination, cooked in tandoor.",
+        tagline: "Chicken on bone, malai marination delight.",
+        des: "Chicken on bone, malai marination, cooked in tandoor",
         price: 369,
         featured: false,
         rate: "4.8(64)"
@@ -92,8 +102,9 @@ const card = [
     {
         id: 11,
         img: "./src/dish/12.jpg",
-        title: "Dum Chicken Biryani Served With Raita & Salad",
-        des: "Traditional slow cooked, flavoursome Chicken lag with Long Grain Basmati Rice Served with Raita.",
+        title: "Dum Chicken Biryani",
+        tagline: "Slow-cooked, flavorsome Chicken, Basmati Rice.",
+        des: "Traditional slow-cooked, flavorsome Chicken lag with Long Grain Basmati Rice Served with Raita",
         price: 379,
         featured: false,
         rate: "4.1(170)"
@@ -101,7 +112,8 @@ const card = [
     {
         id: 12,
         img: "./src/dish/14.jpeg",
-        title: "Butter Chicken Parantha Roll",
+        title: "Butter Chicken Roll",
+        tagline: "Authentic butter chicken in ulta tawa.",
         des: "Authentic butter chicken wrapped in a ulta tawa",
         price: 249,
         featured: false,
@@ -111,7 +123,8 @@ const card = [
         id: 13,
         img: "./src/dish/15.jpeg",
         title: "Kadhai Paneer Gravy",
-        des: "Prefect blend of onion tomato tadka and indian spices with Cottage Cheese and bell peppers.",
+        tagline: "Perfect blend, onion tomato tadka, spices.",
+        des: "Prefect blend of onion tomato tadka and indian spices with Cottage Cheese and bell peppers",
         price: 279,
         featured: false,
         rate: "4.4(64)"
@@ -120,7 +133,8 @@ const card = [
         id: 14,
         img: "./src/dish/18.jpg",
         title: "Chilly Chicken Dry",
-        des: "Made of chunks of boneless chicken mixed with dry red chilies, finely chopped ginger and garlic, onions and other Indo Chinese spices to make a spicy Indian flare dish along with the distinct traditional Chinese flavors.",
+        tagline: "Boneless chicken, red chilies.",
+        des: "Made of chunks of boneless chicken mixed with dry red chilies, finely chopped ginger and garlic, onions and other Indo Chinese spices to make a spicy Indian flare dish along with the distinct traditional Chinese flavors",
         price: 220,
         featured: true,
         rate: "3.6(745)"
@@ -129,6 +143,7 @@ const card = [
         id: 15,
         img: "./src/dish/19.jpg",
         title: "Dragon Chicken",
+        tagline: "Batter-fried, spices, Indo Chinese delight.",
         des: "Dragon chicken is a popular Indo Chinese non-vegetarian starter recipe. Dragon chicken is made from batter-fried chicken and then cooked in lots of spices.",
         price: 214,
         featured: false,
@@ -138,10 +153,10 @@ const card = [
         id: 16,
         img: "./src/dish/20.jpeg",
         title: "Mexican Pizza",
+        tagline: "Flavorful mix mozzarella delight.",
         des: "Serves 1 | Flavourful mix of red capsicum, green capsicum, jalapeno, onion, black olives, sweet corn and 100% mozzarella Cheese with a signature spice sprinkle & our flavourful pan sauce.",
         price: 319,
-        featured: true,
-        rate: "4.3(228)"
+        featured: true
     }
 ]
 // ---------------------------------------------------------------------------
@@ -159,6 +174,48 @@ const display = card.map((item, index) => {
     `
 })
 cardct.innerHTML = display.join("");
+
+
+const fav = document.querySelector(".swiper-wrapper");
+const dsfav = card.map((item, index) => {
+    if (item.featured==true) {
+        return `
+        <div class="swiper-slide">
+        <!--  -->
+        <div class="herosec">
+            <div class="left">
+                <div class="context">
+                    <div class="op">
+                        <div class="retragular"></div>
+                        <div class="text">
+                            <p id="bold2">${item.tagline}</p>
+                            <p id="reg2">${item.title}</p>
+                        </div>
+                    </div>
+                    <div class="op">
+                        <div class="retragular2"></div>
+                        <p id="detail">${item.des}
+                        </p>
+                    </div>
+                    <div class="buts">
+                        <button id="btn2">Order Now</button>
+                        <button id="btn3">Contact Us</button>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <img id="food" src=${item.img} alt="">
+            </div>
+        </div>
+        <!--  -->
+    </div>
+        ` 
+    }
+
+})
+
+fav.innerHTML = dsfav.join("");
+
 // navbar
 let sectionEls = document.querySelectorAll("section")
 let navlinks = document.querySelectorAll(".nav ul a")
@@ -380,8 +437,8 @@ document.addEventListener('DOMContentLoaded', function () {
         // Handle form submission...
     });
     function reset() {
-         // Clear all form fields
-         reservationForm.reset(); 
+        // Clear all form fields
+        reservationForm.reset();
     }
     btnSubmit.addEventListener('click', function () {
 
