@@ -1,21 +1,76 @@
 import * as carditem from "./api/card.js";
 const card = carditem.card;
 
+
+
+// filter item
+let filteredItems = [];
+
+// Function to filter items based on category
+function filteritem(catitem = "All", button) {
+    const buttons = document.querySelectorAll('.categories button');
+
+    buttons.forEach(btn => {
+        if (btn === button) {
+            btn.classList.add('alactive');
+            btn.classList.remove('category');
+        } else {
+            btn.classList.remove('alactive');
+            btn.classList.add('category');
+        }
+    });
+
+    filteredItems = card.filter((culEl) => {
+        if (catitem === "All") {
+            // Display all items when category is "All"
+            return true;
+        } else {
+            // Display items that match the selected category
+            return culEl.category === catitem;
+        }
+    });
+
+    // Call the function to update displayed items
+    updateDisplay();
+}
+window.filteritem = filteritem;
+
+
+
+
 // ---------------------------------------------------------------------------
-const cardct = document.querySelector(".m2")
-const display = card.map((item, index) => {
-    return `
-    <div class="s2">
-    <div class="pici"><img src=${item.img} alt=""> </div>
-    <p><img id="star" src="./src/star.svg">&nbsp ${item.rate}</p>
-        <p>${item.title}</p>
-        <p>${item.des}</p>
-        <p id="price"><i class="uil uil-rupee-sign"></i>${item.price}</p>
-        <button onClick="addtocart(${index})" class="btn5"> Add to Cart &nbsp <i class="uil uil-shopping-cart"></i></button>
-    </div>
-    `
-})
-cardct.innerHTML = display.join("");
+
+// Function to update displayed items
+function updateDisplay() {
+    const cardct = document.querySelector(".m2");
+
+    if (filteredItems.length === 0) {
+        filteredItems = card;
+    }
+    // Use filteredItems to display items
+    const display = filteredItems.map((item, index) => {
+        return `
+        <div class="s2">
+            <div class="pici"><img src=${item.img} alt=""></div>
+            <p><img id="star" src="./src/star.svg">&nbsp ${item.rate}</p>
+            <p>${item.title}</p>
+            <p>${item.des}</p>
+            <p id="price"><i class="uil uil-rupee-sign"></i>${item.price}</p>
+            <button class="btn5"> Add to Cart &nbsp <i class="uil uil-shopping-cart"></i></button>
+        </div>
+        `;
+    });
+
+    cardct.innerHTML = display.join("");
+    // Add event listener for "View in Cart" buttons
+    cardct.querySelectorAll('.btn5').forEach((button, index) => {
+        button.addEventListener('click', function() {
+            addtocart(index);
+        });
+    });
+}
+
+updateDisplay();
 
 
 const fav = document.querySelector(".swiper-wrapper");
@@ -126,9 +181,32 @@ function showreview() {
 }
 
 window.showreview = showreview;
+//menu
+let snav = document.querySelector(".nav");
+let menubtn = document.querySelector(".menubtn_id");
+let menusec = document.querySelector(".menupage");
+let searchbar = document.querySelector(".search-bar");
+menubtn.onclick = function () {
+    menuact()
+};
+function menuact() {
+    if (menusec.style.display === "none") {
+        menusec.style.display = "block"
+        snav.style.display = "none";
+        menubtn.classList.add("menu_active");
+        menubtn.innerHTML = "Home"
+        searchbar.style.display = "flex";
+    } else {
+        menusec.style.display = "none"
+        snav.style.display = "flex";
+        menubtn.innerHTML = "Menu"
+        menubtn.classList.remove("menu_active");
+        searchbar.style.display = "none";
+    }
+}
 
 // cart
-let snav = document.querySelector(".nav");
+
 let cartwraper = document.querySelector(".cartsection");
 let cartcov = document.querySelector(".cart");
 cartcov.onclick = function () {
@@ -137,10 +215,10 @@ cartcov.onclick = function () {
 function ac_cart() {
     if (cartwraper.style.display === "none") {
         cartwraper.style.display = "flex";
-        snav.style.display = "none";
+        // snav.style.display = "none";
     } else {
         cartwraper.style.display = "none";
-        snav.style.display = "flex";
+        // snav.style.display = "flex";
     }
 }
 
@@ -155,24 +233,27 @@ const cart_data = document.querySelector(".cart_wraper");
 const totalpricese = document.querySelector(".totalprice");
 
 function addtocart(key) {
-    // console.log(id);
     let sum = 0;
     const cartButton = cartButtons[key];
-    // console.log(cartButton.classList);
+
     if (!cartButton.classList.contains('add_cart')) {
         list.push({ ...card[key] });
+
         for (let k = 0; k < list.length; k++) {
             sum = sum + list[k].price;
         }
+
         cartButton.classList.add("add_cart");
-        cartButton.innerHTML = `view in cart`;
+        cartButton.innerHTML = `View in Cart`; // Corrected the capitalization
         totalpricese.innerHTML = `<i class="uil uil-rupee-sign"></i>${sum}`;
         displaycart(cartButton);
         itemno++;
         cart_num.innerHTML = itemno;
 
+        // Store the updated cart in local storage
+        localStorage.setItem('cart', JSON.stringify(list));
     } else {
-        alert("Item already in cart")
+        alert("Item already in cart");
     }
 }
 window.addtocart = addtocart;
@@ -328,5 +409,36 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     });
 });
+
+// Function to calculate the total price of items in the cart
+function calculateTotalPrice() {
+    let sum = 0;
+    for (let k = 0; k < list.length; k++) {
+        sum = sum + (parseInt(dis_carts[k].innerText, 10) || 0) * list[k].price;
+    }
+    return sum;
+}
+
+window.onload = function () {
+    fadeOut();
+
+    // Load the cart from local storage and update the display
+    const storedCart = localStorage.getItem('cart');
+    if (storedCart) {
+        try {
+            list = JSON.parse(storedCart);
+            itemno = list.length;
+            cart_num.innerHTML = itemno;
+            totalpricese.innerHTML = calculateTotalPrice();
+            displaycart(); // Update the cart display
+
+            // Log the items in the console
+            console.log('Items in local storage:', list);
+        } catch (error) {
+            console.error('Error parsing items from local storage:', error);
+        }
+    }
+}
+
 
 

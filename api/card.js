@@ -7,7 +7,8 @@ export const card = [
         des: "Rich Black lentil delicacy, prepared with lushes tomato gravy, cream and butter served with choice of breads or rice served with choice of breads or rice.",
         price: 219,
         featured: false,
-        rate: "3.9(54)"
+        rate: "3.9(54)",
+        category: "Dinner"
     },
     {
         id: 2,
@@ -17,7 +18,8 @@ export const card = [
         des: "Seasonal vegetables tossed in rich Indian spices",
         price: 149,
         featured: false,
-        rate: "4.4(88)"
+        rate: "4.4(88)",
+        category: "Lunch"
     },
     {
         id: 3,
@@ -27,7 +29,8 @@ export const card = [
         des: "Soya chaap cooked with aromatic spices, onion & tomato gravy",
         price: 279,
         featured: false,
-        rate: "4.7(30)"
+        rate: "4.7(30)",
+        category: "Snacks"
     },
     {
         id: 4,
@@ -37,7 +40,8 @@ export const card = [
         des: "Rich and spicy tomato Makhani Gravy with Cottage cheese finished with Butter",
         price: 279,
         featured: false,
-        rate: "4.3(43)"
+        rate: "4.3(43)",
+        category: "Dinner"
     },
     {
         id: 5,
@@ -47,7 +51,8 @@ export const card = [
         des: "Mumbai Style Spicy Mashed Vegetables Served With Buttery Bread Roll",
         price: 199,
         featured: false,
-        rate: "4.3(75)"
+        rate: "4.3(75)",
+        category: "Snacks"
     },
     {
         id: 6,
@@ -57,7 +62,8 @@ export const card = [
         des: "Smooth and rich tomato-based makhani gravy with cream and butter with tandoori chicken",
         price: 349,
         featured: true,
-        rate: "4.0(88)"
+        rate: "4.0(88)",
+        category: "Dinner"
     },
     {
         id: 7,
@@ -67,7 +73,8 @@ export const card = [
         des: "(Dal Makhani+ Paneer Of The Day+ Mix Veg + Raita + Rice+ 1 Butter Naan + 1 Butter Roti+ Gulab Jamun+ Salad)",
         price: 419,
         featured: false,
-        rate: "3.9(165)"
+        rate: "3.9(165)",
+        category: "Dinner"
     },
     {
         id: 8,
@@ -77,17 +84,19 @@ export const card = [
         des: "Tender and succulent chicken drumstick, tandoori masala marination",
         price: 399,
         featured: false,
-        rate: "4.3(131)"
+        rate: "4.3(131)",
+        category: "Dinner"
     },
     {
         id: 9,
         img: "./src/dish/10.png",
         title: "Punjabi Chole",
-        tagline: "Classic Punjab dish, flavorful spice blend.",
+        tagline: "Classic Punjab dish.",
         des: "A classic dish from the Punjab, which is flavored with a large assortment of spice powders",
         price: 219,
         featured: true,
-        rate: "3.8(58)"
+        rate: "3.8(58)",
+        category: "Lunch"
     },
     {
         id: 10,
@@ -97,7 +106,8 @@ export const card = [
         des: "Chicken on bone, malai marination, cooked in tandoor",
         price: 369,
         featured: false,
-        rate: "4.8(64)"
+        rate: "4.8(64)",
+        category: "Dinner"
     },
     {
         id: 11,
@@ -107,7 +117,8 @@ export const card = [
         des: "Traditional slow-cooked, flavorsome Chicken lag with Long Grain Basmati Rice Served with Raita",
         price: 379,
         featured: false,
-        rate: "4.1(170)"
+        rate: "4.1(170)",
+        category: "Dinner"
     },
     {
         id: 12,
@@ -117,7 +128,8 @@ export const card = [
         des: "Authentic butter chicken wrapped in a ulta tawa",
         price: 249,
         featured: false,
-        rate: "4.0(26)"
+        rate: "4.0(26)",
+        category: "Snacks"
     },
     {
         id: 13,
@@ -127,17 +139,19 @@ export const card = [
         des: "Prefect blend of onion tomato tadka and indian spices with Cottage Cheese and bell peppers",
         price: 279,
         featured: false,
-        rate: "4.4(64)"
+        rate: "4.4(64)",
+        category: "Dinner"
     },
     {
         id: 14,
         img: "./src/dish/18.png",
         title: "Chilly Chicken Dry",
-        tagline: "Boneless chicken, red chilies.",
+        tagline: "Boneless chicken with red chilies.",
         des: "Made of chunks of boneless chicken mixed with dry red chilies, finely chopped ginger and garlic, onions.",
         price: 220,
         featured: true,
-        rate: "3.6(745)"
+        rate: "3.6(745)",
+        category: "Dinner"
     },
     {
         id: 15,
@@ -147,15 +161,84 @@ export const card = [
         des: "Dragon chicken is a popular Indo Chinese non-vegetarian starter recipe. Dragon chicken is made from batter-fried chicken and then cooked in lots of spices.",
         price: 214,
         featured: false,
-        rate: "4.1(256)"
+        rate: "4.1(256)",
+        category: "Snacks"
     },
     {
         id: 16,
         img: "./src/dish/20.png",
         title: "Mexican Pizza",
-        tagline: "Flavorful mix mozzarella delight.",
+        tagline: "Flavorful mix mozzarella.",
         des: "Flavourful mix of red capsicum, green capsicum,onion, black olives, sweet corn and 100% mozzarella Cheese with a signature spice.",
         price: 319,
-        featured: true
+        featured: true,
+        rate: "4.0(156)",
+        category: "Dinner"
+    },
+    {
+        id: 17,
+        img: "./src/dish/21.jpg",
+        title: "Classic Pancakes",
+        tagline: "Fluffy pancakes served with maple syrup.",
+        des: "Classic fluffy pancakes served with a generous drizzle of maple syrup.",
+        price: 129,
+        featured: false,
+        rate: "4.5(42)",
+        category: "Breakfast"
+    },
+    {
+        id: 18,
+        img: "./src/dish/22.jpg",
+        title: "Avocado Toast",
+        tagline: "Healthy and delicious avocado on toast.",
+        des: "Sliced ripe avocado on top of toasted bread, seasoned to perfection.",
+        price: 169,
+        featured: false,
+        rate: "4.2(34)",
+        category: "Breakfast"
+    },
+    {
+        id: 19,
+        img: "./src/dish/23.jpg",
+        title: "Egg Benedict",
+        tagline: "Classic breakfast dish with poached eggs.",
+        des: "English muffin halves topped with Canadian bacon, poached eggs, and hollandaise sauce.",
+        price: 199,
+        featured: false,
+        rate: "4.8(52)",
+        category: "Breakfast"
+    },
+    {
+        id: 20,
+        img: "./src/dish/24.jpg",
+        title: "Fruit Parfait",
+        tagline: "Healthy and refreshing fruit parfait.",
+        des: "Layers of yogurt, granola, and mixed fruits for a delightful breakfast.",
+        price: 149,
+        featured: false,
+        rate: "4.4(27)",
+        category: "Breakfast"
+    },
+    {
+        id: 21,
+        img: "./src/dish/25.jpg",
+        title: "Omelette",
+        tagline: "Customized omelette with your favorite fillings.",
+        des: "Fluffy omelette with a variety of fillings, served with toast.",
+        price: 179,
+        featured: false,
+        rate: "4.6(38)",
+        category: "Breakfast"
+    },
+    {
+        id: 22,
+        img: "./src/dish/26.jpg",
+        title: "Smoothie Bowl",
+        tagline: "Refreshing smoothie bowl with assorted toppings.",
+        des: "Blended fruit smoothie topped with granola, nuts, and fresh berries.",
+        price: 159,
+        featured: false,
+        rate: "4.3(45)",
+        category: "Breakfast"
     }
 ];
