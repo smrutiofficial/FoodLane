@@ -110,24 +110,28 @@ var swiper = new Swiper(".mySwiper", {
 // review
 let usertexts = document.getElementsByClassName("us_text");
 let userpics = document.getElementsByClassName("user_pic");
+
 function showreview() {
-    for (userpic of userpics) {
+    for (let userpic of userpics) {
         userpic.classList.remove("activepic");
     }
-    for (usertext of usertexts) {
+
+    for (let usertext of usertexts) {
         usertext.classList.remove("activetext");
     }
+
     let i = Array.from(userpics).indexOf(event.target);
-    // console.log(i);
     userpics[i].classList.add("activepic");
     usertexts[i].classList.add("activetext");
 }
 
+window.showreview = showreview;
+
 // cart
 let snav = document.querySelector(".nav");
 let cartwraper = document.querySelector(".cartsection");
-let cartcov =document.querySelector(".cart");
-cartcov.onclick = function() {
+let cartcov = document.querySelector(".cart");
+cartcov.onclick = function () {
     ac_cart()
 };
 function ac_cart() {
@@ -284,6 +288,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Clear all form fields
         reservationForm.reset();
     }
+    window.reset = reset;
     btnSubmit.addEventListener('click', function () {
 
         // Get the values from the form inputs
@@ -323,3 +328,5 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     });
 });
+
+
