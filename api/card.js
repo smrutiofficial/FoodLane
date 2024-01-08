@@ -51,9 +51,9 @@ export const card = [
     },
     {
         id: 6,
-        img: "./src/dish/7.jpg",
+        img: "./src/dish/7.png",
         title: "Butter Chicken",
-        tagline: "Smooth tomato Makhani, tandoori chicken delight.",
+        tagline: "Tandoori chicken delight.",
         des: "Smooth and rich tomato-based makhani gravy with cream and butter with tandoori chicken",
         price: 349,
         featured: true,
@@ -81,7 +81,7 @@ export const card = [
     },
     {
         id: 9,
-        img: "./src/dish/10.jpg",
+        img: "./src/dish/10.png",
         title: "Punjabi Chole",
         tagline: "Classic Punjab dish, flavorful spice blend.",
         des: "A classic dish from the Punjab, which is flavored with a large assortment of spice powders",
@@ -131,10 +131,10 @@ export const card = [
     },
     {
         id: 14,
-        img: "./src/dish/18.jpg",
+        img: "./src/dish/18.png",
         title: "Chilly Chicken Dry",
         tagline: "Boneless chicken, red chilies.",
-        des: "Made of chunks of boneless chicken mixed with dry red chilies, finely chopped ginger and garlic, onions and other Indo Chinese spices to make a spicy Indian flare dish along with the distinct traditional Chinese flavors",
+        des: "Made of chunks of boneless chicken mixed with dry red chilies, finely chopped ginger and garlic, onions.",
         price: 220,
         featured: true,
         rate: "3.6(745)"
@@ -151,10 +151,10 @@ export const card = [
     },
     {
         id: 16,
-        img: "./src/dish/20.jpeg",
+        img: "./src/dish/20.png",
         title: "Mexican Pizza",
         tagline: "Flavorful mix mozzarella delight.",
-        des: "Serves 1 | Flavourful mix of red capsicum, green capsicum, jalapeno, onion, black olives, sweet corn and 100% mozzarella Cheese with a signature spice sprinkle & our flavourful pan sauce.",
+        des: "Flavourful mix of red capsicum, green capsicum,onion, black olives, sweet corn and 100% mozzarella Cheese with a signature spice.",
         price: 319,
         featured: true
     }
