@@ -5,6 +5,8 @@ const card = carditem.card;
 
 // filter item
 let filteredItems = [];
+// const cartButtons = document.querySelectorAll(".btn5");
+let dis_carts = document.querySelectorAll(".dis_cart");
 
 // Function to filter items based on category
 function filteritem(catitem = "All", button) {
@@ -62,16 +64,24 @@ function updateDisplay() {
     });
 
     cardct.innerHTML = display.join("");
-    // Add event listener for "View in Cart" buttons
-    cardct.querySelectorAll('.btn5').forEach((button, index) => {
-        button.addEventListener('click', function() {
+
+    // Add event listener for "Add to Cart" buttons
+    addEventListenersToButtons();
+}
+
+updateDisplay();
+function addEventListenersToButtons() {
+    const cartButtons = document.querySelectorAll(".btn5");
+    cartButtons.forEach((button, index) => {
+        button.removeEventListener('click', () => {
+            addtocart(index);
+        });
+
+        button.addEventListener('click', function () {
             addtocart(index);
         });
     });
 }
-
-updateDisplay();
-
 
 const fav = document.querySelector(".swiper-wrapper");
 const dsfav = card.map((item, index) => {
@@ -246,12 +256,16 @@ function addtocart(key) {
         cartButton.classList.add("add_cart");
         cartButton.innerHTML = `View in Cart`; // Corrected the capitalization
         totalpricese.innerHTML = `<i class="uil uil-rupee-sign"></i>${sum}`;
-        displaycart(cartButton);
         itemno++;
         cart_num.innerHTML = itemno;
 
         // Store the updated cart in local storage
         localStorage.setItem('cart', JSON.stringify(list));
+
+        // Update the event listeners after updating the display
+        displaycart(cartButton);
+        // addEventListenersToButtons();
+        updateTotal();
     } else {
         alert("Item already in cart");
     }
@@ -260,98 +274,124 @@ window.addtocart = addtocart;
 
 
 
-
 function displaycart(cartButton) {
-    if (list.length === 0) {
-        cart_data.innerHTML = "Your cart is empty";
-    } else {
-        const cartHTML = list.map((item, index) => {
-            return `
-                <div class="cart_display">
-                    <div class="cd_wraper">
-                        <div class="cart_div_item">
-                            <img class="img_cart" src="${item.img}" alt="">
-                            <p class="item_cart_title">${item.title}</p>
-                            <p class="total_price" data-index="${index}"><i class="uil uil-rupee-sign"></i>${item.price}</p>
-                            <div class="counter_item">
-                                <button class="minus_cart" data-index="${index}">-</button>
-                                <p class="dis_cart" data-index="${index}">01</p>
-                                <button class="plus_cart" data-index="${index}">+</button>
-                            </div>
-                            <button class="timesx"><i class="uil uil-trash-alt"></i></button>
-                        </div>
+    const storedCart = localStorage.getItem('cart');
+    const cartContainer = document.querySelector('.cart_wraper');
+    // Check if there is any data in local storage
+    if (storedCart) {
+
+        try {
+            // Parse the data (assuming it's stored as JSON)
+            const cartData = JSON.parse(storedCart);
+            // console.log("ji:-", cartData);
+            // Use the map method to create HTML elements
+            const cartHTML = cartData.map((item, index) => {
+                return `
+            <div class="cart_display">
+            <div class="cd_wraper">
+                <div class="cart_div_item">
+                    <img class="img_cart" src="${item.img}" alt="">
+                    <p class="item_cart_title">${item.title}</p>
+                    <p class="total_price" data-index="${index}"><i class="uil uil-rupee-sign"></i>${item.price}</p>
+                    <div class="counter_item">
+                        <button class="minus_cart" data-index="${index}">-</button>
+                        <p class="dis_cart" data-index="${index}">01</p>
+                        <button class="plus_cart" data-index="${index}">+</button>
                     </div>
+                    <button class="timesx"><i class="uil uil-trash-alt"></i></button>
                 </div>
+            </div>
+        </div>
             `;
-        });
-        cart_data.innerHTML = cartHTML.join("");
-
-        // cart counter
-        const minus_carts = document.querySelectorAll(".minus_cart");
-        const dis_carts = document.querySelectorAll(".dis_cart");
-        const plus_carts = document.querySelectorAll(".plus_cart");
-        const total_prices = document.querySelectorAll(".total_price");
-        minus_carts.forEach((minus_cart, index) => {
-            minus_cart.addEventListener('click', () => {
-                let counter = parseInt(dis_carts[index].innerText, 10) || 0;
-                if (counter > 1) {
-                    counter--;
-                    dis_carts[index].innerText = (counter < 10) ? "0" + counter : counter;
-                    updateTotalPrice(index, counter);
-                    updateTotal()
-                }
             });
-        });
 
-        // remove from cart
-        const timesx = document.querySelectorAll(".timesx");
+            // Update the DOM with the generated content
+            cartContainer.innerHTML = cartHTML.join('');
 
-        timesx.forEach((timesx, index) => {
-            timesx.addEventListener('click', () => {
-                // Remove the item at the current index
-                const removedItem = list[index];
 
-                list.splice(index, 1);
-                displaycart();
-                updateTotal();
-                itemno--;
-                cart_num.innerHTML = itemno;
-
-                // Find the index of the removedItem in the original card array
-                const originalIndex = card.findIndex(item => item.id === removedItem.id);
-
-                // Change button text back to "Add to Cart" for the corresponding button
-                cartButtons[originalIndex].classList.remove("add_cart");
-                cartButtons[originalIndex].innerHTML = `Add to Cart &nbsp <i class="uil uil-shopping-cart"></i>`;
-            });
-        });
-
-        plus_carts.forEach((plus_cart, index) => {
-            plus_cart.addEventListener('click', () => {
-                let counter = parseInt(dis_carts[index].innerText, 10) || 0;
-                if (counter < 12) {
-                    counter++;
-                    dis_carts[index].innerText = (counter < 10) ? "0" + counter : counter;
-                    updateTotalPrice(index, counter);
-                    updateTotal();
-                }
-            });
-        });
-        function updateTotalPrice(index, counter) {
-            const item = list[index];
-            const totalPriceElement = total_prices[index];
-            const totalPrice = item.price * counter;
-            totalPriceElement.innerHTML = `<i class="uil uil-rupee-sign"></i>${totalPrice}`;
-        }
-        function updateTotal() {
-            let sum = 0;
-            for (let k = 0; k < list.length; k++) {
-                sum = sum + (parseInt(dis_carts[k].innerText, 10) || 0) * list[k].price;
-            }
-            totalpricese.innerHTML = `<i class="uil uil-rupee-sign"></i>${sum}`;
+        } catch (error) {
+            console.error('Error parsing cart data from local storage:', error);
         }
     }
+    // cart counter
+    const minus_carts = document.querySelectorAll(".minus_cart");
+    // let dis_carts = document.querySelectorAll(".dis_cart");
+    const plus_carts = document.querySelectorAll(".plus_cart");
+    const total_prices = document.querySelectorAll(".total_price");
+    minus_carts.forEach((minus_cart, index) => {
+        minus_cart.addEventListener('click', () => {
+            let counter = parseInt(dis_carts[index].innerText, 10) || 0;
+            if (counter > 1) {
+                counter--;
+                dis_carts[index].innerText = (counter < 10) ? "0" + counter : counter;
+                updateTotalPrice(index, counter);
+                updateTotal()
+            }
+        });
+    });
+
+    // Remove from cart
+    const timesx = document.querySelectorAll(".timesx");
+
+    timesx.forEach((timesx, index) => {
+        timesx.addEventListener('click', () => {
+            // Remove the item at the current index
+            const removedItem = list[index];
+
+            list.splice(index, 1);
+            itemno--;
+            cart_num.innerHTML = itemno;
+            displaycart();
+            updateTotal();
+
+            // Find the index of the removedItem in the original card array
+            const originalIndex = card.findIndex(item => item.id === removedItem.id);
+
+            // Change button text back to "Add to Cart" for the corresponding button
+            cartButtons[originalIndex].classList.remove("add_cart");
+            cartButtons[originalIndex].innerHTML = `Add to Cart &nbsp <i class="uil uil-shopping-cart"></i>`;
+
+            // Update the local storage with the modified cart
+            localStorage.setItem('cart', JSON.stringify(list));
+        });
+    });
+
+    plus_carts.forEach((plus_cart, index) => {
+        plus_cart.addEventListener('click', () => {
+            let counter = parseInt(dis_carts[index].innerText, 10) || 0;
+            if (counter < 12) {
+                counter++;
+                dis_carts[index].innerText = (counter < 10) ? "0" + counter : counter;
+                updateTotalPrice(index, counter);
+                updateTotal();
+            }
+        });
+    });
+    function updateTotalPrice(index, counter) {
+        const item = list[index];
+        const totalPriceElement = total_prices[index];
+        const totalPrice = item.price * counter;
+        totalPriceElement.innerHTML = `<i class="uil uil-rupee-sign"></i>${totalPrice}`;
+    }
+    // Function to update total price
+    function updateTotal() {
+        let sum = 0;
+        for (let k = 0; k < list.length; k++) {
+            // Ensure that dis_carts is defined and has enough elements
+            if (dis_carts && dis_carts[k]) {
+                sum += (parseInt(dis_carts[k].innerText, 10) || 0) * list[k].price;
+            } else {
+                console.error('Error: dis_carts is undefined or insufficient elements.');
+            }
+        }
+        totalpricese.innerHTML = `<i class="uil uil-rupee-sign"></i>${sum}`;
+    }
+    setTimeout(() => {
+        // Call the function to update total price
+        updateTotal();
+    }, 0);
 }
+// window.updateTotal=updateTotal;
 
 
 
@@ -409,16 +449,22 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     });
 });
-
 // Function to calculate the total price of items in the cart
 function calculateTotalPrice() {
     let sum = 0;
     for (let k = 0; k < list.length; k++) {
-        sum = sum + (parseInt(dis_carts[k].innerText, 10) || 0) * list[k].price;
+        // Ensure that dis_carts is defined and has enough elements
+        if (dis_carts && dis_carts[k]) {
+            sum = sum + (parseInt(dis_carts[k].innerText, 10) || 0) * list[k].price;
+        } else {
+            console.error('Error: dis_carts is undefined or insufficient elements.');
+        }
     }
     return sum;
 }
 
+
+// Single window.onload function
 window.onload = function () {
     fadeOut();
 
@@ -429,16 +475,17 @@ window.onload = function () {
             list = JSON.parse(storedCart);
             itemno = list.length;
             cart_num.innerHTML = itemno;
+
+            // Re-initialize dis_carts after the DOM is loaded
+            dis_carts = document.querySelectorAll(".dis_cart");
+
             totalpricese.innerHTML = calculateTotalPrice();
             displaycart(); // Update the cart display
-
+            updateTotal();
             // Log the items in the console
             console.log('Items in local storage:', list);
         } catch (error) {
             console.error('Error parsing items from local storage:', error);
         }
     }
-}
-
-
-
+};
