@@ -1,10 +1,7 @@
-v1.6.1
+v1.6.5
 > Live Demo : [netlify](https://precious-alpaca-e4a592.netlify.app/) or [github](https://smrutiofficial.github.io/FoodLane/)
 
-![preview](/src/demo1.png)  
-![preview2](/src/demo2.png)  
-![preview](/src/demo4.png)  
-![preview](/src/demo5.png)
+![preview](/src/var.gif)  
 
 # FoodLane App Documentation
 
@@ -19,12 +16,38 @@ v1.6.1
 ## Introduction
 
 Welcome to the documentation of FoodLane (Static Restaurant App)! This simple web application is built using ==HTML, CSS, and JavaScript== to showcase a static representation of a restaurant's website.
+
 ## Features
 
 - **Responsive Design:** The app is designed to be responsive and accessible across various devices and screen sizes.
-- **Menu Display:** Display the restaurant's menu with enticing images and descriptions.
+
+- **Menu Display with Categories:** Display the restaurant's menu with categories such as appetizers, main courses, desserts, etc. Each category should be visually distinguishable and easy to navigate.
+
+- **Category Filters:** Implement filters that allow users to view specific categories of items. Users can click on a category, and the menu should dynamically update to show only items from that category.
+
+- **Search Bar Filter:**
+
+> Search Functionality: Include a search bar that enables users to search for specific items or keywords within the menu.
+
+> Dynamic Filtering: As users type in the search bar, dynamically filter the displayed menu items to match the entered keywords.
+
+- **Seat Booking Feature:**
+
+> Interactive Seat Map: Provide users with an interactive seat map where they can view available seats and book their preferred ones.
+
+> Reservation Form: Include a reservation form where users can select the date, time, and the number of seats they want to book.
+
 - **Contact Information:** Easily find the contact details and location of the restaurant.
-- **Interactive Elements:** Use of JavaScript to create interactive features for a better user experience.
+
+- **Interactive Elements:**
+
+> Shopping Cart with Local Storage: Implement a shopping cart that stores selected items locally on the user's device. This ensures that the cart retains its contents even if the user refreshes the page or closes the browser.
+
+> Item Button: Include an interactive item button that allows users to add items to their shopping cart with a single click. The button should update the cart and reflect the current number of items in it.
+
+
+
+
 
 ## Installation
 

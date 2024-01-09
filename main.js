@@ -1,90 +1,252 @@
-import * as carditem from "./api/card.js";
-const card = carditem.card;
 
-
-
-// filter item
-let filteredItems = [];
-// const cartButtons = document.querySelectorAll(".btn5");
-let dis_carts = document.querySelectorAll(".dis_cart");
-
-// Function to filter items based on category
-function filteritem(catitem = "All", button) {
-    const buttons = document.querySelectorAll('.categories button');
-
-    buttons.forEach(btn => {
-        if (btn === button) {
-            btn.classList.add('alactive');
-            btn.classList.remove('category');
-        } else {
-            btn.classList.remove('alactive');
-            btn.classList.add('category');
-        }
-    });
-
-    filteredItems = card.filter((culEl) => {
-        if (catitem === "All") {
-            // Display all items when category is "All"
-            return true;
-        } else {
-            // Display items that match the selected category
-            return culEl.category === catitem;
-        }
-    });
-
-    // Call the function to update displayed items
-    updateDisplay();
-}
-window.filteritem = filteritem;
-
-
-
-
-// ---------------------------------------------------------------------------
-
-// Function to update displayed items
-function updateDisplay() {
-    const cardct = document.querySelector(".m2");
-
-    if (filteredItems.length === 0) {
-        filteredItems = card;
+const products = [
+    {
+        id: 1,
+        img: "./src/dish/1.jpg",
+        title: "Dal Makhani",
+        tagline: "Rich lentils, tomato gravy, cream delight.",
+        des: "Rich Black lentil delicacy, prepared with lushes tomato gravy, cream and butter served with choice of breads or rice served with choice of breads or rice.",
+        price: 219,
+        featured: false,
+        rate: "3.9(54)",
+        category: "Dinner"
+    },
+    {
+        id: 2,
+        img: "./src/dish/2.png",
+        title: "Spicy Mix Vegetable",
+        tagline: "Seasonal veggies in rich Indian spices.",
+        des: "Seasonal vegetables tossed in rich Indian spices",
+        price: 149,
+        featured: false,
+        rate: "4.4(88)",
+        category: "Lunch"
+    },
+    {
+        id: 3,
+        img: "./src/dish/5.jpg",
+        title: "Masala Soya Chaap",
+        tagline: "Soya chaap, aromatic spices, tomato gravy.",
+        des: "Soya chaap cooked with aromatic spices, onion & tomato gravy",
+        price: 279,
+        featured: false,
+        rate: "4.7(30)",
+        category: "Snacks"
+    },
+    {
+        id: 4,
+        img: "./src/dish/4.jpg",
+        title: "Paneer Butter Masala",
+        tagline: "Spicy tomato Makhani, Cottage cheese delight.",
+        des: "Rich and spicy tomato Makhani Gravy with Cottage cheese finished with Butter",
+        price: 279,
+        featured: false,
+        rate: "4.3(43)",
+        category: "Dinner"
+    },
+    {
+        id: 5,
+        img: "./src/dish/6.jpg",
+        title: "Pao Bhaji",
+        tagline: "Mumbai Style Spicy Mashed Vegetables Delight.",
+        des: "Mumbai Style Spicy Mashed Vegetables Served With Buttery Bread Roll",
+        price: 199,
+        featured: false,
+        rate: "4.3(75)",
+        category: "Snacks"
+    },
+    {
+        id: 6,
+        img: "./src/dish/7.png",
+        title: "Butter Chicken",
+        tagline: "Tandoori chicken delight.",
+        des: "Smooth and rich tomato-based makhani gravy with cream and butter with tandoori chicken",
+        price: 349,
+        featured: true,
+        rate: "4.0(88)",
+        category: "Dinner"
+    },
+    {
+        id: 7,
+        img: "./src/dish/8.jpg",
+        title: "Special Veg Thali",
+        tagline: "Dal Makhani, Paneer, Mix Veg, Indian feast.",
+        des: "(Dal Makhani+ Paneer Of The Day+ Mix Veg + Raita + Rice+ 1 Butter Naan + 1 Butter Roti+ Gulab Jamun+ Salad)",
+        price: 419,
+        featured: false,
+        rate: "3.9(165)",
+        category: "Dinner"
+    },
+    {
+        id: 8,
+        img: "./src/dish/9.jpg",
+        title: "Tangri Kebab",
+        tagline: "Tender chicken drumstick, tandoori marination.",
+        des: "Tender and succulent chicken drumstick, tandoori masala marination",
+        price: 399,
+        featured: false,
+        rate: "4.3(131)",
+        category: "Dinner"
+    },
+    {
+        id: 9,
+        img: "./src/dish/10.png",
+        title: "Punjabi Chole",
+        tagline: "Classic Punjab dish.",
+        des: "A classic dish from the Punjab, which is flavored with a large assortment of spice powders",
+        price: 219,
+        featured: true,
+        rate: "3.8(58)",
+        category: "Lunch"
+    },
+    {
+        id: 10,
+        img: "./src/dish/11.jpeg",
+        title: "Chicken Seekh Kebab",
+        tagline: "Chicken on bone, malai marination delight.",
+        des: "Chicken on bone, malai marination, cooked in tandoor",
+        price: 369,
+        featured: false,
+        rate: "4.8(64)",
+        category: "Dinner"
+    },
+    {
+        id: 11,
+        img: "./src/dish/12.jpg",
+        title: "Dum Chicken Biryani",
+        tagline: "Slow-cooked, flavorsome Chicken, Basmati Rice.",
+        des: "Traditional slow-cooked, flavorsome Chicken lag with Long Grain Basmati Rice Served with Raita",
+        price: 379,
+        featured: false,
+        rate: "4.1(170)",
+        category: "Dinner"
+    },
+    {
+        id: 12,
+        img: "./src/dish/14.jpeg",
+        title: "Butter Chicken Roll",
+        tagline: "Authentic butter chicken in ulta tawa.",
+        des: "Authentic butter chicken wrapped in a ulta tawa",
+        price: 249,
+        featured: false,
+        rate: "4.0(26)",
+        category: "Snacks"
+    },
+    {
+        id: 13,
+        img: "./src/dish/15.jpeg",
+        title: "Kadhai Paneer Gravy",
+        tagline: "Perfect blend, onion tomato tadka, spices.",
+        des: "Prefect blend of onion tomato tadka and indian spices with Cottage Cheese and bell peppers",
+        price: 279,
+        featured: false,
+        rate: "4.4(64)",
+        category: "Dinner"
+    },
+    {
+        id: 14,
+        img: "./src/dish/18.png",
+        title: "Chilly Chicken Dry",
+        tagline: "Boneless chicken with red chilies.",
+        des: "Made of chunks of boneless chicken mixed with dry red chilies, finely chopped ginger and garlic, onions.",
+        price: 220,
+        featured: true,
+        rate: "3.6(745)",
+        category: "Dinner"
+    },
+    {
+        id: 15,
+        img: "./src/dish/19.jpg",
+        title: "Dragon Chicken",
+        tagline: "Batter-fried, spices, Indo Chinese delight.",
+        des: "Dragon chicken is a popular Indo Chinese non-vegetarian starter recipe. Dragon chicken is made from batter-fried chicken and then cooked in lots of spices.",
+        price: 214,
+        featured: false,
+        rate: "4.1(256)",
+        category: "Snacks"
+    },
+    {
+        id: 16,
+        img: "./src/dish/20.png",
+        title: "Mexican Pizza",
+        tagline: "Flavorful mix mozzarella.",
+        des: "Flavourful mix of red capsicum, green capsicum,onion, black olives, sweet corn and 100% mozzarella Cheese with a signature spice.",
+        price: 319,
+        featured: true,
+        rate: "4.0(156)",
+        category: "Dinner"
+    },
+    {
+        id: 17,
+        img: "./src/dish/bk/17.jpg",
+        title: "Classic Pancakes",
+        tagline: "Fluffy pancakes served with maple syrup.",
+        des: "Classic fluffy pancakes served with a generous drizzle of maple syrup.",
+        price: 129,
+        featured: false,
+        rate: "4.5(42)",
+        category: "Breakfast"
+    },
+    {
+        id: 18,
+        img: "./src/dish/bk/18.jpg",
+        title: "Avocado Toast",
+        tagline: "Healthy and delicious avocado on toast.",
+        des: "Sliced ripe avocado on top of toasted bread, seasoned to perfection.",
+        price: 169,
+        featured: false,
+        rate: "4.2(34)",
+        category: "Breakfast"
+    },
+    {
+        id: 19,
+        img: "./src/dish/bk/19.jpg",
+        title: "Egg Benedict",
+        tagline: "Classic breakfast dish with poached eggs.",
+        des: "English muffin halves topped with Canadian bacon, poached eggs, and hollandaise sauce.",
+        price: 199,
+        featured: false,
+        rate: "4.8(52)",
+        category: "Breakfast"
+    },
+    {
+        id: 20,
+        img: "./src/dish/bk/20.jpg",
+        title: "Fruit Parfait",
+        tagline: "Healthy and refreshing fruit parfait.",
+        des: "Layers of yogurt, granola, and mixed fruits for a delightful breakfast.",
+        price: 149,
+        featured: false,
+        rate: "4.4(27)",
+        category: "Breakfast"
+    },
+    {
+        id: 21,
+        img: "./src/dish/bk/21.jpg",
+        title: "Omelette",
+        tagline: "Customized omelette with your favorite fillings.",
+        des: "Fluffy omelette with a variety of fillings, served with toast.",
+        price: 179,
+        featured: false,
+        rate: "4.6(38)",
+        category: "Breakfast"
+    },
+    {
+        id: 22,
+        img: "./src/dish/bk/22.jpg",
+        title: "Smoothie Bowl",
+        tagline: "Refreshing smoothie bowl with assorted toppings.",
+        des: "Blended fruit smoothie topped with granola, nuts, and fresh berries.",
+        price: 159,
+        featured: false,
+        rate: "4.3(45)",
+        category: "Breakfast"
     }
-    // Use filteredItems to display items
-    const display = filteredItems.map((item, index) => {
-        return `
-        <div class="s2">
-            <div class="pici"><img src=${item.img} alt=""></div>
-            <p><img id="star" src="./src/star.svg">&nbsp ${item.rate}</p>
-            <p>${item.title}</p>
-            <p>${item.des}</p>
-            <p id="price"><i class="uil uil-rupee-sign"></i>${item.price}</p>
-            <button class="btn5"> Add to Cart &nbsp <i class="uil uil-shopping-cart"></i></button>
-        </div>
-        `;
-    });
+];
 
-    cardct.innerHTML = display.join("");
-
-    // Add event listener for "Add to Cart" buttons
-    addEventListenersToButtons();
-}
-
-updateDisplay();
-function addEventListenersToButtons() {
-    const cartButtons = document.querySelectorAll(".btn5");
-    cartButtons.forEach((button, index) => {
-        button.removeEventListener('click', () => {
-            addtocart(index);
-        });
-
-        button.addEventListener('click', function () {
-            addtocart(index);
-        });
-    });
-}
 
 const fav = document.querySelector(".swiper-wrapper");
-const dsfav = card.map((item, index) => {
+const dsfav = products.map((item, index) => {
     if (item.featured == true) {
         return `
         <div class="swiper-slide">
@@ -233,168 +395,6 @@ function ac_cart() {
 }
 
 
-// add to cart
-let cart_num = document.querySelector(".cartno")
-let itemno = 0;
-const cartButtons = document.querySelectorAll(".btn5");
-
-let list = [];
-const cart_data = document.querySelector(".cart_wraper");
-const totalpricese = document.querySelector(".totalprice");
-
-function addtocart(key) {
-    let sum = 0;
-    const cartButton = cartButtons[key];
-
-    if (!cartButton.classList.contains('add_cart')) {
-        list.push({ ...card[key] });
-
-        for (let k = 0; k < list.length; k++) {
-            sum = sum + list[k].price;
-        }
-
-        cartButton.classList.add("add_cart");
-        cartButton.innerHTML = `View in Cart`; // Corrected the capitalization
-        totalpricese.innerHTML = `<i class="uil uil-rupee-sign"></i>${sum}`;
-        itemno++;
-        cart_num.innerHTML = itemno;
-
-        // Store the updated cart in local storage
-        localStorage.setItem('cart', JSON.stringify(list));
-
-        // Update the event listeners after updating the display
-        displaycart(cartButton);
-        // addEventListenersToButtons();
-        updateTotal();
-    } else {
-        alert("Item already in cart");
-    }
-}
-window.addtocart = addtocart;
-
-
-
-function displaycart(cartButton) {
-    const storedCart = localStorage.getItem('cart');
-    const cartContainer = document.querySelector('.cart_wraper');
-    // Check if there is any data in local storage
-    if (storedCart) {
-
-        try {
-            // Parse the data (assuming it's stored as JSON)
-            const cartData = JSON.parse(storedCart);
-            // console.log("ji:-", cartData);
-            // Use the map method to create HTML elements
-            const cartHTML = cartData.map((item, index) => {
-                return `
-            <div class="cart_display">
-            <div class="cd_wraper">
-                <div class="cart_div_item">
-                    <img class="img_cart" src="${item.img}" alt="">
-                    <p class="item_cart_title">${item.title}</p>
-                    <p class="total_price" data-index="${index}"><i class="uil uil-rupee-sign"></i>${item.price}</p>
-                    <div class="counter_item">
-                        <button class="minus_cart" data-index="${index}">-</button>
-                        <p class="dis_cart" data-index="${index}">01</p>
-                        <button class="plus_cart" data-index="${index}">+</button>
-                    </div>
-                    <button class="timesx"><i class="uil uil-trash-alt"></i></button>
-                </div>
-            </div>
-        </div>
-            `;
-            });
-
-            // Update the DOM with the generated content
-            cartContainer.innerHTML = cartHTML.join('');
-
-
-        } catch (error) {
-            console.error('Error parsing cart data from local storage:', error);
-        }
-    }
-    // cart counter
-    const minus_carts = document.querySelectorAll(".minus_cart");
-    // let dis_carts = document.querySelectorAll(".dis_cart");
-    const plus_carts = document.querySelectorAll(".plus_cart");
-    const total_prices = document.querySelectorAll(".total_price");
-    minus_carts.forEach((minus_cart, index) => {
-        minus_cart.addEventListener('click', () => {
-            let counter = parseInt(dis_carts[index].innerText, 10) || 0;
-            if (counter > 1) {
-                counter--;
-                dis_carts[index].innerText = (counter < 10) ? "0" + counter : counter;
-                updateTotalPrice(index, counter);
-                updateTotal()
-            }
-        });
-    });
-
-    // Remove from cart
-    const timesx = document.querySelectorAll(".timesx");
-
-    timesx.forEach((timesx, index) => {
-        timesx.addEventListener('click', () => {
-            // Remove the item at the current index
-            const removedItem = list[index];
-
-            list.splice(index, 1);
-            itemno--;
-            cart_num.innerHTML = itemno;
-            displaycart();
-            updateTotal();
-
-            // Find the index of the removedItem in the original card array
-            const originalIndex = card.findIndex(item => item.id === removedItem.id);
-
-            // Change button text back to "Add to Cart" for the corresponding button
-            cartButtons[originalIndex].classList.remove("add_cart");
-            cartButtons[originalIndex].innerHTML = `Add to Cart &nbsp <i class="uil uil-shopping-cart"></i>`;
-
-            // Update the local storage with the modified cart
-            localStorage.setItem('cart', JSON.stringify(list));
-        });
-    });
-
-    plus_carts.forEach((plus_cart, index) => {
-        plus_cart.addEventListener('click', () => {
-            let counter = parseInt(dis_carts[index].innerText, 10) || 0;
-            if (counter < 12) {
-                counter++;
-                dis_carts[index].innerText = (counter < 10) ? "0" + counter : counter;
-                updateTotalPrice(index, counter);
-                updateTotal();
-            }
-        });
-    });
-    function updateTotalPrice(index, counter) {
-        const item = list[index];
-        const totalPriceElement = total_prices[index];
-        const totalPrice = item.price * counter;
-        totalPriceElement.innerHTML = `<i class="uil uil-rupee-sign"></i>${totalPrice}`;
-    }
-    // Function to update total price
-    function updateTotal() {
-        let sum = 0;
-        for (let k = 0; k < list.length; k++) {
-            // Ensure that dis_carts is defined and has enough elements
-            if (dis_carts && dis_carts[k]) {
-                sum += (parseInt(dis_carts[k].innerText, 10) || 0) * list[k].price;
-            } else {
-                console.error('Error: dis_carts is undefined or insufficient elements.');
-            }
-        }
-        totalpricese.innerHTML = `<i class="uil uil-rupee-sign"></i>${sum}`;
-    }
-    setTimeout(() => {
-        // Call the function to update total price
-        updateTotal();
-    }, 0);
-}
-// window.updateTotal=updateTotal;
-
-
-
 document.addEventListener('DOMContentLoaded', function () {
     // Get the form element
     var reservationForm = document.getElementById('reservationForm');
@@ -449,43 +449,284 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     });
 });
-// Function to calculate the total price of items in the cart
-function calculateTotalPrice() {
-    let sum = 0;
-    for (let k = 0; k < list.length; k++) {
-        // Ensure that dis_carts is defined and has enough elements
-        if (dis_carts && dis_carts[k]) {
-            sum = sum + (parseInt(dis_carts[k].innerText, 10) || 0) * list[k].price;
+
+
+
+const fproducts = document.querySelector(".viewcart");
+
+const futcards = products.slice(14,22)
+// fproducts.classList.add('s2');
+const viewitemsh = futcards.map((item)=>{
+    return`
+    <div class="s2">
+    <div class="pici"><img src=${item.img} alt=""></div>
+    <p><img id="star" src="./src/star.svg">&nbsp ${item.rate}</p>
+    <p>${item.title}</p>
+    <p>${item.des}</p>
+    <p id="price"><i class="uil uil-rupee-sign"></i>${item.price}</p>
+    <button onclick="menuact()" style="
+        margin-top: 5%;
+        margin-bottom: 5%;
+        background: rgb(103, 65, 65);
+        color: rgb(247, 198, 198);
+        border: none;
+        width: 100%;
+        height: 3.5rem;
+        font-size: 1.2rem;
+        border-radius: 0.5rem;
+        ">Visit Menu</button>
+    </div>
+    
+    `
+})
+
+fproducts.innerHTML = viewitemsh.join('');
+
+
+// ====================================================================================================
+// ==============================cart logic hear =======================================================
+const buttons = document.querySelectorAll('.categories button');
+
+// Function to filter products by category
+function filterByCategory(category, button) {
+    buttons.forEach(btn => {
+        if (btn === button) {
+            btn.classList.add('alactive');
+            btn.classList.remove('category');
         } else {
-            console.error('Error: dis_carts is undefined or insufficient elements.');
+            btn.classList.remove('alactive');
+            btn.classList.add('category');
         }
-    }
-    return sum;
+    });
+
+    const filteredProducts = category === 'All' ? products : products.filter(product => product.category === category);
+   
+    populateProductList(filteredProducts);
 }
 
+// Call the function with 'All' category on page load
+filterByCategory('All', buttons[0]);
 
-// Single window.onload function
-window.onload = function () {
-    fadeOut();
 
-    // Load the cart from local storage and update the display
-    const storedCart = localStorage.getItem('cart');
-    if (storedCart) {
-        try {
-            list = JSON.parse(storedCart);
-            itemno = list.length;
-            cart_num.innerHTML = itemno;
+const cartno = document.querySelector(".cartno");
 
-            // Re-initialize dis_carts after the DOM is loaded
-            dis_carts = document.querySelectorAll(".dis_cart");
+// Function to populate the product list
+function populateProductList(productArray) {
+    console.log(productArray);
+    const productList = document.querySelector('.m2');
+    productList.innerHTML = '';
 
-            totalpricese.innerHTML = calculateTotalPrice();
-            displaycart(); // Update the cart display
-            updateTotal();
-            // Log the items in the console
-            console.log('Items in local storage:', list);
-        } catch (error) {
-            console.error('Error parsing items from local storage:', error);
-        }
+    productArray.forEach(product => {
+        const productDiv = document.createElement('div');
+        productDiv.classList.add('s2');
+        productDiv.innerHTML = `
+            <div class="pici"><img src=${product.img} alt=""></div>
+            <p><img id="star" src="./src/star.svg">&nbsp ${product.rate}</p>
+            <p>${product.title}</p>
+            <p>${product.des}</p>
+            <p id="price"><i class="uil uil-rupee-sign"></i>${product.price}</p>
+            <button id="addToCartBtn${product.id}" onclick="addToCart(${product.id})" style="
+                margin-top: 5%;
+                margin-bottom: 5%;
+                background: rgb(103, 65, 65);
+                color: rgb(247, 198, 198);
+                border: none;
+                width: 100%;
+                height: 3.5rem;
+                font-size: 1.2rem;
+                border-radius: 0.5rem;
+                ">Add to Cart</button>
+            <button id="viewInCartBtn${product.id}" onclick="viewInCart(${product.id})" style="
+                display: none; 
+                margin-top: 5%;
+                margin-bottom: 5%;
+                background: #d9b0b0;
+                color: rgb(103, 65, 65);
+                border: none;
+                width: 100%;
+                height: 3.5rem;
+                font-size: 1.2rem;
+                border-radius: 0.5rem;
+
+            ">View in Cart</button>
+        `;
+        productList.appendChild(productDiv);
+
+        // Check and update button visibility
+        checkCartStatus(product.id);
+    });
+
+    // Reset the sidebar
+    updateSidebar();
+}
+
+// Assuming products is defined somewhere in your code
+// const products = [...]; // Replace this with your actual product data
+
+// filterByCategory('All');
+
+
+// Function to add item to cart
+function addToCart(productId) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || {};
+
+    if (cart[productId]) {
+        cart[productId].quantity += 1;
+    } else {
+        cart[productId] = {
+            item: products.find(product => product.id === productId),
+            quantity: 1
+        };
     }
-};
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    checkCartStatus(productId);
+    updateSidebar();
+}
+window.addToCart = addToCart;
+// Function to view item in cart
+function viewInCart(productId) {
+    // Handle navigating to the cart page or showing the cart details
+    // ...
+
+    checkCartStatus(productId);
+    updateSidebar();
+}
+window.viewInCart = viewInCart;
+// Function to check cart status on page load
+function checkCartStatus(productId) {
+    const cart = JSON.parse(localStorage.getItem('cart')) || {};
+    const cartItem = cart[productId];
+
+    if (cartItem && cartItem.quantity > 0) {
+        document.getElementById(`addToCartBtn${productId}`).style.display = 'none';
+        document.getElementById(`viewInCartBtn${productId}`).style.display = 'inline';
+    } else {
+        document.getElementById(`addToCartBtn${productId}`).style.display = 'inline';
+        document.getElementById(`viewInCartBtn${productId}`).style.display = 'none';
+    }
+}
+
+// Check cart status for each product on page load
+products.forEach(product => {
+    checkCartStatus(product.id);
+});
+
+// Call the updateSidebar function on page load
+updateSidebar();
+
+// Function to remove item from the cart
+function removeFromCart(productId) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || {};
+    delete cart[productId];
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    // Update button visibility in the product list
+    updateCartButtons(productId);
+
+    // Update the sidebar
+    updateSidebar();
+}
+
+// Function to increment quantity of an item in the cart
+function incrementQuantity(productId) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || {};
+    if (cart[productId] && cart[productId].quantity > 0) {
+        cart[productId].quantity += 1;
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        // Update the sidebar
+        updateSidebar();
+    }
+}
+window.incrementQuantity = incrementQuantity;
+
+// Function to decrement quantity of an item in the cart
+function decrementQuantity(productId) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || {};
+    if (cart[productId] && cart[productId].quantity > 1) {
+        cart[productId].quantity -= 1;
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        // Update the sidebar
+        updateSidebar();
+    } else {
+        // Remove item if quantity becomes 0
+        removeFromCart(productId);
+    }
+}
+window.decrementQuantity = decrementQuantity;
+
+// Function to calculate the total price of items in the cart
+function calculateTotalPrice(cartItems) {
+    return cartItems.reduce((total, item) => total + item.item.price * item.quantity, 0);
+}
+
+// Function to update cart buttons based on cart status
+function updateCartButtons(productId) {
+    const cart = JSON.parse(localStorage.getItem('cart')) || {};
+    const cartItem = cart[productId];
+
+    // Update button visibility
+    if (cartItem && cartItem.quantity > 0) {
+        document.getElementById(`addToCartBtn${productId}`).style.display = 'none';
+        document.getElementById(`viewInCartBtn${productId}`).style.display = 'inline';
+    } else {
+        document.getElementById(`addToCartBtn${productId}`).style.display = 'inline';
+        document.getElementById(`viewInCartBtn${productId}`).style.display = 'none';
+    }
+}
+
+// Function to update the sidebar with cart items
+function updateSidebar() {
+    const cartItemsList = document.querySelector(".cart_wraper");
+    const cart = JSON.parse(localStorage.getItem('cart')) || {};
+    const cartItems = Object.values(cart);
+    const numview = document.querySelector(".cartno");
+    numview.innerText = `${cartItems.length}`;
+    // Clear existing cart items
+    cartItemsList.innerHTML = '';
+    console.log("gt", cartItems);
+    // Display a message if the cart is empty
+    if (cartItems.length === 0) {
+        const emptyCartMessage = document.createElement('p');
+        emptyCartMessage.textContent = 'Your shopping cart is empty.';
+        cartItemsList.appendChild(emptyCartMessage);
+    } else {
+        const cartHTML = cartItems.map(item => {
+            return `
+        <div class="cart_display">
+        <div class="cd_wraper">
+            <div class="cart_div_item">
+                <img class="img_cart" src="${item.item.img}" alt="">
+                <p class="item_cart_title">${item.item.title}</p>
+                <p class="total_price" ><i class="uil uil-rupee-sign"></i>${item.item.price * item.quantity}</p>
+                <div class="counter_item">
+                 
+                    <button class="minus_cart" onclick="decrementQuantity(${item.item.id})" ${item.quantity === 1 ? 'disabled' : ''}>-</button>
+                    <p class="dis_cart" >${item.quantity}</p>
+                  
+                    <button class="plus_cart" onclick="incrementQuantity(${item.item.id})" ${item.quantity === 12 ? 'disabled' : ''}>+</button>
+                </div>
+                <button onclick="removeFromCart(${item.item.id})" class="timesx"><i class="uil uil-trash-alt"></i></button>
+            </div>
+        </div>
+    </div>
+        `;
+        });
+        // Update the DOM with the generated content
+        cartItemsList.innerHTML = cartHTML.join('');
+    }
+
+
+    // Calculate and display the total price
+    const totalPrice = calculateTotalPrice(cartItems);
+    const tprice = document.querySelector(".totalprice");
+    tprice.innerHTML = `<i class="uil uil-rupee-sign"></i>${totalPrice}`;
+    // const totalElement = document.createElement('div');
+    // totalElement.innerHTML = `<p>Total Price: ${totalPrice}</p>`;
+    cartItemsList.appendChild(totalElement);
+}
+// Call the updateSidebar function on page load
+updateSidebar();

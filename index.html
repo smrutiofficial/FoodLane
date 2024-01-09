@@ -28,7 +28,7 @@
             </div>
             <div class="search-bar">
                 <input type="text" placeholder="Search for dishes...">
-                <button><i class="uil uil-search-alt"></i></button>
+                <button><i class="uil uil-search"></i></button>
             </div>
             <div class="nav">
                 <ul><a class="active" href="#hero">Home</a></ul>
@@ -51,12 +51,16 @@
     </nav>
     <!-- menu page -->
     <div class="menupage">
+        <div class="menutit">
+            <p>Our Menu</p>
+            <p>"Savor Delightful Flavors, Culinary Excellence on Every Plate."</p>
+        </div>
         <div class="categories">
-            <button class="alactive" onclick="filteritem('All', this)">All</button>
-            <button class="category" onclick="filteritem('Breakfast', this)">Breakfast</button>
-            <button class="category" onclick="filteritem('Lunch', this)">Lunch</button>
-            <button class="category" onclick="filteritem('Snacks', this)">Snacks</button>
-            <button class="category" onclick="filteritem('Dinner', this)">Dinner</button>
+            <button class="alactive" onclick="filterByCategory('All', this)">All</button>
+            <button class="category" onclick="filterByCategory('Breakfast', this)">Breakfast</button>
+            <button class="category" onclick="filterByCategory('Lunch', this)">Lunch</button>
+            <button class="category" onclick="filterByCategory('Snacks', this)">Snacks</button>
+            <button class="category" onclick="filterByCategory('Dinner', this)">Dinner</button>
         </div>
         <div class="wocon">
             <div class="m1 m2">
@@ -103,7 +107,7 @@
                 <img id="arrow" src="./src/Group 6.svg" alt="">
             </div>
             <div class="right_b">
-                <button id="bmenu">Explore Menu <i class="uil uil-arrow-right"></i></button>
+                <button onclick="menuact()" id="bmenu">Explore Menu <i class="uil uil-arrow-right"></i></button>
                 <div class="s_sec">
                     <div class="cieclesec">
                         <div class="circle">
@@ -176,7 +180,7 @@
                 veniam doloribus eos totam enim aut.</p>
         </div>
         <div class="wocon">
-            <div class="m1 m2">
+            <div class="m1 viewcart">
                 <!-- card goes here -->
             </div>
         </div>
@@ -376,7 +380,7 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/2f9de29a88.js" crossorigin="anonymous"></script>
-    <script src="main.js" type="module"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>
