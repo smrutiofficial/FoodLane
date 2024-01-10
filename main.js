@@ -1,4 +1,3 @@
-
 const products = [
     {
         id: 1,
@@ -245,6 +244,8 @@ const products = [
 ];
 
 
+
+
 const fav = document.querySelector(".swiper-wrapper");
 const dsfav = products.map((item, index) => {
     if (item.featured == true) {
@@ -394,7 +395,12 @@ function ac_cart() {
     }
 }
 
-
+function reset() {
+    // Clear all form fields
+    reservationForm.reset();
+}
+window.resetForm = reset;
+// window.onload = reset;
 document.addEventListener('DOMContentLoaded', function () {
     // Get the form element
     var reservationForm = document.getElementById('reservationForm');
@@ -405,11 +411,7 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault();
         // Handle form submission...
     });
-    function reset() {
-        // Clear all form fields
-        reservationForm.reset();
-    }
-    window.reset = reset;
+
     btnSubmit.addEventListener('click', function () {
 
         // Get the values from the form inputs
@@ -512,7 +514,7 @@ const cartno = document.querySelector(".cartno");
 
 // Function to populate the product list
 function populateProductList(productArray) {
-    console.log(productArray);
+    // console.log(productArray);
     const productList = document.querySelector('.m2');
     productList.innerHTML = '';
 
@@ -559,11 +561,6 @@ function populateProductList(productArray) {
     // Reset the sidebar
     updateSidebar();
 }
-
-// Assuming products is defined somewhere in your code
-// const products = [...]; // Replace this with your actual product data
-
-// filterByCategory('All');
 
 
 // Function to add item to cart
@@ -687,8 +684,7 @@ function updateSidebar() {
     numview.innerText = `${cartItems.length}`;
     // Clear existing cart items
     cartItemsList.innerHTML = '';
-    console.log("gt", cartItems);
-    // Display a message if the cart is empty
+
     if (cartItems.length === 0) {
         const emptyCartMessage = document.createElement('p');
         emptyCartMessage.textContent = 'Your shopping cart is empty.';
@@ -724,9 +720,6 @@ function updateSidebar() {
     const totalPrice = calculateTotalPrice(cartItems);
     const tprice = document.querySelector(".totalprice");
     tprice.innerHTML = `<i class="uil uil-rupee-sign"></i>${totalPrice}`;
-    // const totalElement = document.createElement('div');
-    // totalElement.innerHTML = `<p>Total Price: ${totalPrice}</p>`;
-    cartItemsList.appendChild(totalElement);
 }
 // Call the updateSidebar function on page load
 updateSidebar();
