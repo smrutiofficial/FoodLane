@@ -126,6 +126,7 @@ nav {
     margin-top: 6rem;
     /* margin-left: 5rem; */
     height: 75vh;
+    overflow: hidden;
     width: 100%;
     display: flex;
     justify-content: space-around;

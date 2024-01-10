@@ -319,6 +319,8 @@ function fadeOut() {
 window.onload = fadeOut;
 // =============================
 var swiper = new Swiper(".mySwiper", {
+    direction: 'horizontal',
+    mousewheel: true, 
     cssMode: true,
     autoplay: {
         delay: 2500,
@@ -331,7 +333,6 @@ var swiper = new Swiper(".mySwiper", {
     pagination: {
         el: ".swiper-pagination",
     },
-    mousewheel: true,
     keyboard: true,
 });
 
@@ -364,40 +365,47 @@ menubtn.onclick = function () {
     menuact()
 };
 function menuact() {
-    if (menusec.style.display === "none") {
-        menusec.style.display = "block"
+    let menusecDisplayStyle = window.getComputedStyle(menusec).display;
+
+    console.log(menusecDisplayStyle);
+
+    if (menusecDisplayStyle === "none") {
+        menusec.style.display = "block";
         snav.style.display = "none";
         menubtn.classList.add("menu_active");
-        menubtn.innerHTML = "Home"
-        menustate=true;
-        // searchbar.style.display = "flex";
+        menubtn.innerHTML = `<i class="uil uil-angle-double-left"></i> Home`;
+        menustate = true;
     } else {
-        menusec.style.display = "none"
+        menusec.style.display = "none";
         snav.style.display = "flex";
-        menubtn.innerHTML = "Menu"
+        menubtn.innerHTML = `Menu<i class="uil uil-angle-double-right"></i>`;
         menubtn.classList.remove("menu_active");
-        menustate=false;
-        // searchbar.style.display = "none";
+        menustate = false;
     }
 }
 
 // cart
-
 let cartwraper = document.querySelector(".cartsection");
 let cartcov = document.querySelector(".cart");
+
 cartcov.onclick = function () {
-    ac_cart()
+    ac_cart();
 };
+
 function ac_cart() {
-    if (cartwraper.style.display === "none") {
+    let cartwraperDisplayStyle = window.getComputedStyle(cartwraper).display;
+
+    if (cartwraperDisplayStyle === "none") {
         cartwraper.style.display = "flex";
         snav.style.display = "none";
-        if (menustate==true) {
+
+        if (menustate === true) {
             snav.style.display = "none";
         }
     } else {
         cartwraper.style.display = "none";
-        if (menustate==false) {
+
+        if (menustate === false) {
             snav.style.display = "flex";
         }
     }
