@@ -358,7 +358,8 @@ window.showreview = showreview;
 let snav = document.querySelector(".nav");
 let menubtn = document.querySelector(".menubtn_id");
 let menusec = document.querySelector(".menupage");
-let searchbar = document.querySelector(".search-bar");
+// let searchbar = document.querySelector(".search-bar");
+let menustate=false;
 menubtn.onclick = function () {
     menuact()
 };
@@ -368,13 +369,15 @@ function menuact() {
         snav.style.display = "none";
         menubtn.classList.add("menu_active");
         menubtn.innerHTML = "Home"
-        searchbar.style.display = "flex";
+        menustate=true;
+        // searchbar.style.display = "flex";
     } else {
         menusec.style.display = "none"
         snav.style.display = "flex";
         menubtn.innerHTML = "Menu"
         menubtn.classList.remove("menu_active");
-        searchbar.style.display = "none";
+        menustate=false;
+        // searchbar.style.display = "none";
     }
 }
 
@@ -388,10 +391,15 @@ cartcov.onclick = function () {
 function ac_cart() {
     if (cartwraper.style.display === "none") {
         cartwraper.style.display = "flex";
-        // snav.style.display = "none";
+        snav.style.display = "none";
+        if (menustate==true) {
+            snav.style.display = "none";
+        }
     } else {
         cartwraper.style.display = "none";
-        // snav.style.display = "flex";
+        if (menustate==false) {
+            snav.style.display = "flex";
+        }
     }
 }
 
@@ -469,8 +477,8 @@ const viewitemsh = futcards.map((item) => {
     <button id="hoverm" onclick="menuact()" style="
     margin-top: 5%;
     margin-bottom: 5%;
-    background: rgb(103, 65, 65);
-    color: rgb(247, 198, 198);
+    background: #917373;
+    color: #ffffff;
     border: none;
     width: 100%;
     height: 3.5rem;
@@ -540,7 +548,7 @@ function populateProductList(productArray) {
                 height: 3.5rem;
                 font-size: 1.2rem;
                 border-radius: 0.5rem;
-                ">Add to Cart</button>
+                ">Add to Cart <i class="uil uil-shopping-cart"></i></button>
             <button id="viewInCartBtn${product.id}" onclick="viewInCart(${product.id})" style="
                 display: none; 
                 margin-top: 5%;
@@ -726,3 +734,28 @@ function updateSidebar() {
 }
 // Call the updateSidebar function on page load
 updateSidebar();
+
+
+// cart bg
+const cartbgpop = document.querySelector(".popupbg");
+const orderbtn =document.querySelector(".order");
+const closepopbtn = document.querySelector(".closepopbtn");
+const orderpop =document.querySelector(".orderpop");
+
+
+// Show cartbgpop and set scale to 1 on orderbtn click
+orderbtn.addEventListener("click", function () {
+    
+    cartbgpop.style.display = "flex";
+    setTimeout(() => {
+        orderpop.style.transform = "scale(1)";
+      }, 500); 
+  });
+  
+  // Set scale to 0 and hide cartbgpop on closepopbtn click
+  closepopbtn.addEventListener("click", function () {
+    orderpop.style.transform = "scale(0)";
+    setTimeout(() => {
+      cartbgpop.style.display = "none";
+    }, 500); // Adjust the timeout duration to match the transition duration
+  });

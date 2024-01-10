@@ -738,8 +738,10 @@ form {
 } */
 /* ============================================================= */
 
-
-
+.uil-shopping-cart{
+    font-size: 2rem;
+    padding-left: 1rem;
+}
 
 #btn4,
 #btn4:after {
@@ -1623,4 +1625,103 @@ label {
 .viewcart{
     margin-top: 2rem;
 }
+.popupbg{
+    top: 0;
+    position: fixed;
+    /* border: red solid; */
+    z-index: 98;
+    width: 100%;
+    height: 100%;
+    background: #22222257;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
 
+/* popup */
+.orderpop{
+    background: white;
+    position: fixed;
+    height:fit-content;
+    width: 50rem;
+    z-index: 99;
+    border-radius: 0.5rem;
+    transform: scale(0);
+    transition: all 1s;
+}
+.orderpop span{
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    font-size: 2rem;
+}
+.closepopbtn{
+    background: rgb(241, 241, 241);
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.5rem;
+    border: rgb(228, 186, 186) solid;
+    z-index: 100;
+}
+.posrel{
+    width: 100%;
+    /* border: blue solid; */
+    display: flex;
+    justify-content: center;
+}
+.posrel h2{
+text-transform: uppercase;
+}
+.posrel form{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    padding: 0px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+    gap: 10px;
+}
+
+
+.posrel form input {
+    /* Your custom input styles go here */
+    width: 100%;
+    padding: 0rem 0.8rem;
+    margin: 0px;
+    /* box-sizing: border-box; */
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    background: rgb(255, 255, 255);
+}
+.posrel form textarea {
+    /* Your custom input styles go here */
+    width: 100%;
+    /* padding: 0px; */
+    margin: 0px;
+    padding: 0rem 0.8rem;
+    height: 5rem;
+    resize: none;
+    /* box-sizing: border-box; */
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    background: rgb(255, 255, 255);
+}
+.posrel form button {
+    /* Your custom button styles go here */
+    background-color: #4caf50;
+    color: #fff;
+    /* padding: 10px 20px; */
+    padding: 0rem 0.8rem;
+    margin-top: 1.5rem;
+    width: 108%;
+    height: 3rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.posrel form button:hover {
+    background-color: #45a049;
+}

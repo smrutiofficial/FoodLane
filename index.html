@@ -26,10 +26,10 @@
                     <p>FoodLane</p>
                 </a>
             </div>
-            <div class="search-bar">
+            <!-- <div class="search-bar">
                 <input type="text" placeholder="Search for dishes...">
                 <button><i class="uil uil-search"></i></button>
-            </div>
+            </div> -->
             <div class="nav">
                 <ul><a class="active" href="#hero">Home</a></ul>
                 <ul><a class="" href="#services">Services</a></ul>
@@ -74,6 +74,24 @@
             Your cart is empty
             <!-- here goes the cart data -->
         </div>
+        <div class="popupbg">
+            <div class="orderpop">
+                <span class="closepopbtn"><i class="uil uil-times"></i></span>
+                <div class="posrel">
+                    <form>
+                        <h2>Shipping Address</h2>
+                        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                        <input type="text" id="city" name="city" placeholder="Enter your city" required>
+                        <input type="text" id="pincode" name="pincode" placeholder="Enter your pin code" required>
+                        <textarea id="address" name="address" placeholder="Enter your address" required></textarea>
+    
+                        <button type="submit">Continue to Payment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
         <div class="cartbtnarea">
             <div class="cart_btns">
                 <div class="orderfrom_cart">
@@ -81,7 +99,7 @@
                         <span class="totalprice"><i class="uil uil-rupee-sign"></i>0</span>
                         <p>Total Price</p>
                     </div>
-                    <button class="order">Place Order</button>
+                    <button class="order">Checkout</button>
                 </div>
             </div>
         </div>
@@ -133,7 +151,10 @@
             <div class="t1">
                 <div class="wrp">
                     <p>We Are More Than Multiple Service</p>
-                    <p>We transcend the ordinary as more than a mere service – our restaurant is an immersive experience that goes beyond the conventional. With a diverse range of offerings, we invite you to savor not just dishes, but moments of culinary delight. Uniting flavors, ambiance, and hospitality, we redefine dining as an elevated and multifaceted experience.</p>
+                    <p>We transcend the ordinary as more than a mere service – our restaurant is an immersive experience
+                        that goes beyond the conventional. With a diverse range of offerings, we invite you to savor not
+                        just dishes, but moments of culinary delight. Uniting flavors, ambiance, and hospitality, we
+                        redefine dining as an elevated and multifaceted experience.</p>
                     <button id="btn4">About us</button>
                 </div>
             </div>
@@ -151,7 +172,8 @@
                             local_shipping
                         </span>
                         <p id="bold">Free delivery</p>
-                        <p id="reg4">Delightful Dishes, Delivered Free: Elevate Your Culinary Experience with Complimentary Delivery!</p>
+                        <p id="reg4">Delightful Dishes, Delivered Free: Elevate Your Culinary Experience with
+                            Complimentary Delivery!</p>
                     </div>
                     <div class="s1">
                         <span class="material-symbols-outlined">
@@ -165,7 +187,8 @@
                             local_convenience_store
                         </span>
                         <p id="bold">24/7 Support</p>
-                        <p id="reg4">Around the Clock Excellence: Your Culinary Journey, Our Commitment – 24/7 Support for Your Every Craving!</p>
+                        <p id="reg4">Around the Clock Excellence: Your Culinary Journey, Our Commitment – 24/7 Support
+                            for Your Every Craving!</p>
                     </div>
                 </div>
             </div>
@@ -294,7 +317,8 @@
 
                     <!-- Submit Button -->
                     <div class="btnwrap_form">
-                        <button type="submit" onclick="submit()" id="btns4" class="btn btn-primary">Book a Table <i class="uil uil-transaction"></i></button>
+                        <button type="submit" onclick="submit()" id="btns4" class="btn btn-primary">Book a Table <i
+                                class="uil uil-transaction"></i></button>
                         <!-- <button onclick="reset()" id="btns56" class="btnClear">clear</button> -->
                     </div>
                 </div>
