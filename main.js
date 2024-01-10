@@ -456,27 +456,30 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 const fproducts = document.querySelector(".viewcart");
 
-const futcards = products.slice(14,22)
+const futcards = products.slice(14, 22)
 // fproducts.classList.add('s2');
-const viewitemsh = futcards.map((item)=>{
-    return`
+const viewitemsh = futcards.map((item) => {
+    return `
     <div class="s2">
     <div class="pici"><img src=${item.img} alt=""></div>
     <p><img id="star" src="./src/star.svg">&nbsp ${item.rate}</p>
     <p>${item.title}</p>
     <p>${item.des}</p>
     <p id="price"><i class="uil uil-rupee-sign"></i>${item.price}</p>
-    <button onclick="menuact()" style="
-        margin-top: 5%;
-        margin-bottom: 5%;
-        background: rgb(103, 65, 65);
-        color: rgb(247, 198, 198);
-        border: none;
-        width: 100%;
-        height: 3.5rem;
-        font-size: 1.2rem;
-        border-radius: 0.5rem;
-        ">Visit Menu</button>
+    <button id="hoverm" onclick="menuact()" style="
+    margin-top: 5%;
+    margin-bottom: 5%;
+    background: rgb(103, 65, 65);
+    color: rgb(247, 198, 198);
+    border: none;
+    width: 100%;
+    height: 3.5rem;
+    font-size: 1.2rem;
+    border-radius: 0.5rem;
+    transition: box-shadow 0.5s;
+    " >
+    Visit Menu <i class="uil uil-arrow-right"></i>
+    </button>
     </div>
     
     `
@@ -502,7 +505,7 @@ function filterByCategory(category, button) {
     });
 
     const filteredProducts = category === 'All' ? products : products.filter(product => product.category === category);
-   
+
     populateProductList(filteredProducts);
 }
 
