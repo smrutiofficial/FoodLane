@@ -1,9 +1,10 @@
+## FOODLANE DOC
 v1.6.5
+
 > Live Demo : [netlify](https://precious-alpaca-e4a592.netlify.app/) or [github](https://smrutiofficial.github.io/FoodLane/)
 
-![preview](/src/var.gif)  
+![preview](/src/demobt.gif)  
 
-# FoodLane App Documentation
 
 ### Table of Contents
 
@@ -15,7 +16,7 @@ v1.6.5
 - [License](#License)
 ## Introduction
 
-Welcome to the documentation of FoodLane (Static Restaurant App)! This simple web application is built using ==HTML, CSS, and JavaScript== to showcase a static representation of a restaurant's website.
+Welcome to the documentation of FoodLane (Static Restaurant App)! This simple web application is built using **HTML, CSS, and JavaScript** to showcase a static representation of a restaurant's website.
 
 ## Features
 
@@ -56,16 +57,13 @@ To run the restaurant app locally, follow these steps:
 ```bash
 
 git clone https://github.com/your-username/FoodLane.git
-
 ```
 ### Navigate to the Project Directory:
 ```bash
-
 cd FoodLane
-
 ```
 
-Open ==index.html== in a Web Browser:
+Open **index.html** in a Web Browser:
 Simply open the index.html file in your preferred web browser.
 
 ## Usage 
