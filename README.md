@@ -1,7 +1,7 @@
 ## FOODLANE DOC
 v1.6.5
 
-> Live Demo : [netlify](https://precious-alpaca-e4a592.netlify.app/) or [github](https://smrutiofficial.github.io/FoodLane/)
+> Live Demo : [netlify](https://smrutifoodlane.netlify.app/) or [github](https://smrutiofficial.github.io/FoodLane/)
 
 ![preview](/src/demobt.gif)  
 

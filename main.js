@@ -398,12 +398,14 @@ function ac_cart() {
     if (cartwraperDisplayStyle === "none") {
         cartwraper.style.display = "flex";
         snav.style.display = "none";
+        menubtn.style.display="none";
 
         if (menustate === true) {
             snav.style.display = "none";
         }
     } else {
         cartwraper.style.display = "none";
+        menubtn.style.display="block";
 
         if (menustate === false) {
             snav.style.display = "flex";

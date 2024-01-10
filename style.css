@@ -1726,3 +1726,27 @@ text-transform: uppercase;
 .posrel form button:hover {
     background-color: #45a049;
 }
+
+.guide{
+    position: absolute;
+    right: 3rem;
+    top: 5rem;
+    /* border: red solid; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.uil-arrow-up{
+    font-size: 3rem;
+    animation: moveUpDown 1.3s linear infinite;
+}
+
+@keyframes moveUpDown {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(10px); /* Adjust the distance as needed */
+    }
+  }
