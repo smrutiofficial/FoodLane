@@ -320,7 +320,7 @@ window.onload = fadeOut;
 // =============================
 var swiper = new Swiper(".mySwiper", {
     direction: 'horizontal',
-    mousewheel: true, 
+    mousewheel: true,
     cssMode: true,
     autoplay: {
         delay: 2500,
@@ -360,14 +360,14 @@ let snav = document.querySelector(".nav");
 let menubtn = document.querySelector(".menubtn_id");
 let menusec = document.querySelector(".menupage");
 // let searchbar = document.querySelector(".search-bar");
-let menustate=false;
+let menustate = false;
 menubtn.onclick = function () {
     menuact()
 };
 function menuact() {
     let menusecDisplayStyle = window.getComputedStyle(menusec).display;
 
-    console.log(menusecDisplayStyle);
+    // console.log(menusecDisplayStyle);
 
     if (menusecDisplayStyle === "none") {
         menusec.style.display = "block";
@@ -398,14 +398,14 @@ function ac_cart() {
     if (cartwraperDisplayStyle === "none") {
         cartwraper.style.display = "flex";
         snav.style.display = "none";
-        menubtn.style.display="none";
+        menubtn.style.display = "none";
 
         if (menustate === true) {
             snav.style.display = "none";
         }
     } else {
         cartwraper.style.display = "none";
-        menubtn.style.display="block";
+        menubtn.style.display = "block";
 
         if (menustate === false) {
             snav.style.display = "flex";
@@ -696,6 +696,15 @@ function updateCartButtons(productId) {
     }
 }
 
+function carttom() {
+    if (menustate==false) {
+        menuact();
+        ac_cart()
+    } else{
+        ac_cart();
+    }
+    
+}
 // Function to update the sidebar with cart items
 function updateSidebar() {
     const cartItemsList = document.querySelector(".cart_wraper");
@@ -710,6 +719,15 @@ function updateSidebar() {
         const emptyCartMessage = document.createElement('p');
         emptyCartMessage.textContent = 'Your shopping cart is empty.';
         cartItemsList.appendChild(emptyCartMessage);
+
+        // Change inner HTML
+        emptyCartMessage.innerHTML = `
+        <div class="emptycart">
+        <img id="cart_svg" src="./src/g3.svg"></img>
+        <p>Your cart is empty.</p>
+        <button onclick="carttom()" class="button-85">Continue Shopping</button>
+        </div>
+        `;
     } else {
         const cartHTML = cartItems.map(item => {
             return `
@@ -748,24 +766,24 @@ updateSidebar();
 
 // cart bg
 const cartbgpop = document.querySelector(".popupbg");
-const orderbtn =document.querySelector(".order");
+const orderbtn = document.querySelector(".order");
 const closepopbtn = document.querySelector(".closepopbtn");
-const orderpop =document.querySelector(".orderpop");
+const orderpop = document.querySelector(".orderpop");
 
 
 // Show cartbgpop and set scale to 1 on orderbtn click
 orderbtn.addEventListener("click", function () {
-    
+
     cartbgpop.style.display = "flex";
     setTimeout(() => {
         orderpop.style.transform = "scale(1)";
-      }, 500); 
-  });
-  
-  // Set scale to 0 and hide cartbgpop on closepopbtn click
-  closepopbtn.addEventListener("click", function () {
+    }, 500);
+});
+
+// Set scale to 0 and hide cartbgpop on closepopbtn click
+closepopbtn.addEventListener("click", function () {
     orderpop.style.transform = "scale(0)";
     setTimeout(() => {
-      cartbgpop.style.display = "none";
+        cartbgpop.style.display = "none";
     }, 500); // Adjust the timeout duration to match the transition duration
-  });
+});

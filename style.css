@@ -778,7 +778,7 @@ form {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(45deg, transparent 3%, #43c3cf 3%, #52ceaf 5%, #ea3d30 5%);
+  background: linear-gradient(45deg, transparent 3%, #f1bb99 3%, #f1bb99 5%, #674141 5%);
   text-shadow: -3px -3px 0px #f6e147, 3px 3px 0px #ff6600;
   clip-path: var(--slice-0);
 }
@@ -1132,7 +1132,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .cart_wraper {
     width: 100vw;
-    padding: 6rem 0rem;
+    padding: 1rem 0rem 6rem;
     height: 80%;
     overflow-y: scroll;
     gap: 1rem;
@@ -1616,6 +1616,7 @@ label {
     text-align: center;
     margin-top: 6rem;
     margin-bottom: 2rem;
+    /* display: none !important; */
 }
 
 .menutit p:nth-child(1) {
@@ -1750,3 +1751,114 @@ text-transform: uppercase;
       transform: translateY(10px); /* Adjust the distance as needed */
     }
   }
+
+#lop{
+    top: 0;
+    margin-top: 5rem;
+}
+
+.juit {
+    position: relative;
+    /* text-transform: uppercase; */
+}
+
+.juit::after {
+    content: "";
+    display: block; /* or inline-block */
+    width: 70%;
+    height: 0.3rem;
+    background: rgba(107, 77, 77, 0.337);
+    position: absolute;
+    border-radius: 0.2rem;
+    top: 4rem; /* Adjust for margin-top */
+    left: 15%; /* Adjust as needed */
+
+}
+.emptycart{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 20rem;
+}
+.emptycart p{
+margin-top: 1.5rem;
+font-weight:600 ;
+color: #585858;
+text-align: center;
+font-size: 1.8rem;
+}
+#cart_svg {
+height: 20rem;
+}
+
+
+
+/* ================================== */
+/* CSS */
+.button-85 {
+  padding: 1.2rem 2em;
+  margin-top: 3rem;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #a48383;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-85:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #423535;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
