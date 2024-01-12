@@ -640,11 +640,10 @@ function removeFromCart(productId) {
     delete cart[productId];
     localStorage.setItem('cart', JSON.stringify(cart));
 
-    // Update button visibility in the product list
-    updateCartButtons(productId);
-
     // Update the sidebar
     updateSidebar();
+    // Update button visibility in the product list
+    updateCartButtons(productId);
 }
 
 // Function to increment quantity of an item in the cart
@@ -697,13 +696,13 @@ function updateCartButtons(productId) {
 }
 
 function carttom() {
-    if (menustate==false) {
+    if (menustate == false) {
         menuact();
         ac_cart()
-    } else{
+    } else {
         ac_cart();
     }
-    
+
 }
 // Function to update the sidebar with cart items
 function updateSidebar() {
@@ -739,10 +738,10 @@ function updateSidebar() {
                 <p class="total_price" ><i class="uil uil-rupee-sign"></i>${item.item.price * item.quantity}</p>
                 <div class="counter_item">
                  
-                    <button class="minus_cart" onclick="decrementQuantity(${item.item.id})" ${item.quantity === 1 ? 'disabled' : ''} style="${item.quantity === 1 ? 'opacity: 0.2; cursor: not-allowed;' : '' }">-</button>
+                    <button class="minus_cart" onclick="decrementQuantity(${item.item.id})" ${item.quantity === 1 ? 'disabled' : ''} style="${item.quantity === 1 ? 'opacity: 0.2; cursor: not-allowed;' : ''}">-</button>
                     <p class="dis_cart" >${item.quantity}</p>
                   
-                    <button class="plus_cart" onclick="incrementQuantity(${item.item.id})" ${item.quantity === 12 ? 'disabled' : '' } style="${item.quantity === 12 ? 'opacity: 0.2; cursor: not-allowed;' : ''}">+</button>
+                    <button class="plus_cart" onclick="incrementQuantity(${item.item.id})" ${item.quantity === 12 ? 'disabled' : ''} style="${item.quantity === 12 ? 'opacity: 0.2; cursor: not-allowed;' : ''}">+</button>
                 </div>
                 <button onclick="removeFromCart(${item.item.id})" class="timesx"><i class="uil uil-trash-alt"></i></button>
             </div>
