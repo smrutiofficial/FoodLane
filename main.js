@@ -725,7 +725,7 @@ function updateSidebar() {
         <div class="emptycart">
         <img id="cart_svg" src="./src/g3.svg"></img>
         <p>Your cart is empty.</p>
-        <button onclick="carttom()" class="button-85">Continue Shopping</button>
+        <button onclick="carttom()" class="button-85">Continue Shopping <i class="uil uil-arrow-to-right"></i></button>
         </div>
         `;
     } else {
@@ -739,10 +739,10 @@ function updateSidebar() {
                 <p class="total_price" ><i class="uil uil-rupee-sign"></i>${item.item.price * item.quantity}</p>
                 <div class="counter_item">
                  
-                    <button class="minus_cart" onclick="decrementQuantity(${item.item.id})" ${item.quantity === 1 ? 'disabled' : ''}>-</button>
+                    <button class="minus_cart" onclick="decrementQuantity(${item.item.id})" ${item.quantity === 1 ? 'disabled' : ''} style="${item.quantity === 1 ? 'opacity: 0.2; cursor: not-allowed;' : '' }">-</button>
                     <p class="dis_cart" >${item.quantity}</p>
                   
-                    <button class="plus_cart" onclick="incrementQuantity(${item.item.id})" ${item.quantity === 12 ? 'disabled' : ''}>+</button>
+                    <button class="plus_cart" onclick="incrementQuantity(${item.item.id})" ${item.quantity === 12 ? 'disabled' : '' } style="${item.quantity === 12 ? 'opacity: 0.2; cursor: not-allowed;' : ''}">+</button>
                 </div>
                 <button onclick="removeFromCart(${item.item.id})" class="timesx"><i class="uil uil-trash-alt"></i></button>
             </div>
