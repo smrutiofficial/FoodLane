@@ -3,7 +3,7 @@ v1.6.5
 
 > Live Demo : [netlify](https://smrutifoodlane.netlify.app/) or [github](https://smrutiofficial.github.io/FoodLane/)
 
-![preview](/src/demobt.gif)  
+![preview](./public/src/demobt.gif)  
 
 
 ### Table of Contents
