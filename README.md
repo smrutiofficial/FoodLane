@@ -1,7 +1,7 @@
 ## FOODLANE DOC
 v1.6.5
 
-> Live Demo : [netlify](https://smrutifoodlane.netlify.app/) or [github](https://smrutiofficial.github.io/FoodLane/)
+> Live Demo : [vercel](https://food-lane-puce.vercel.app/)
 
 ![preview](./public/src/demobt.gif)  
 
