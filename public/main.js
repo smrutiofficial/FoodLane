@@ -243,9 +243,10 @@ const products = [
     }
 ];
 
-
-
-
+let huii = false;
+let tpoio = 0;
+const cartdy = document.querySelector('.cdrt');
+const cdcard = [];
 const fav = document.querySelector(".swiper-wrapper");
 const dsfav = products.map((item, index) => {
     if (item.featured == true) {
@@ -268,7 +269,7 @@ const dsfav = products.map((item, index) => {
                         </p>
                     </div>
                     <div class="buts">
-                        <button id="btn2">Order Now</button>
+                        <button id="btn2" onClick="order(${item.id})">Order Now</button>
                         <button id="btn3">Contact Us</button>
                     </div>
                 </div>
@@ -281,11 +282,17 @@ const dsfav = products.map((item, index) => {
     </div>
         `
     }
-
 })
-
 fav.innerHTML = dsfav.join("");
-
+// Add event listener to "Order Now" button
+const orderButtons = document.querySelectorAll(".btn2");
+function order(id) {
+    const selectedItem = products.find(item => item.id === id);
+    if (selectedItem) {
+        // console.log(selectedItem);
+        checkofun(selectedItem.price);
+    }
+}
 // navbar
 let sectionEls = document.querySelectorAll("section")
 let navlinks = document.querySelectorAll(".nav ul a")
@@ -309,7 +316,6 @@ window.addEventListener('scroll', () => {
         }
     })
 })
-
 function loader() {
     document.querySelector(".loader_con").classList.add('fade-out');
 }
@@ -335,25 +341,20 @@ var swiper = new Swiper(".mySwiper", {
     },
     keyboard: true,
 });
-
 // review
 let usertexts = document.getElementsByClassName("us_text");
 let userpics = document.getElementsByClassName("user_pic");
-
 function showreview() {
     for (let userpic of userpics) {
         userpic.classList.remove("activepic");
     }
-
     for (let usertext of usertexts) {
         usertext.classList.remove("activetext");
     }
-
     let i = Array.from(userpics).indexOf(event.target);
     userpics[i].classList.add("activepic");
     usertexts[i].classList.add("activetext");
 }
-
 window.showreview = showreview;
 //menu
 let snav = document.querySelector(".nav");
@@ -366,9 +367,7 @@ menubtn.onclick = function () {
 };
 function menuact() {
     let menusecDisplayStyle = window.getComputedStyle(menusec).display;
-
     // console.log(menusecDisplayStyle);
-
     if (menusecDisplayStyle === "none") {
         menusec.style.display = "block";
         snav.style.display = "none";
@@ -383,36 +382,29 @@ function menuact() {
         menustate = false;
     }
 }
-
 // cart
 let cartwraper = document.querySelector(".cartsection");
 let cartcov = document.querySelector(".cart");
-
 cartcov.onclick = function () {
     ac_cart();
 };
-
 function ac_cart() {
     let cartwraperDisplayStyle = window.getComputedStyle(cartwraper).display;
-
     if (cartwraperDisplayStyle === "none") {
         cartwraper.style.display = "flex";
         snav.style.display = "none";
         menubtn.style.display = "none";
-
         if (menustate === true) {
             snav.style.display = "none";
         }
     } else {
         cartwraper.style.display = "none";
         menubtn.style.display = "block";
-
         if (menustate === false) {
             snav.style.display = "flex";
         }
     }
 }
-
 function reset() {
     // Clear all form fields
     reservationForm.reset();
@@ -423,15 +415,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // Get the form element
     var reservationForm = document.getElementById('reservationForm');
     var btnSubmit = document.getElementById('btns4');
-
-
     reservationForm.addEventListener('submit', function (event) {
         event.preventDefault();
         // Handle form submission...
     });
-
     btnSubmit.addEventListener('click', function () {
-
         // Get the values from the form inputs
         var customerName = document.getElementById('customerName').value;
         var customerEmail = document.getElementById('customerEmail').value;
@@ -441,7 +429,6 @@ document.addEventListener('DOMContentLoaded', function () {
         var reservationTime = document.getElementById('reservationTime').value;
         var partySize = document.getElementById('partySize').value;
         var occasion = document.getElementById('occasion').value;
-
         // Display the alert with the customer's name
         var alertMessage = "Mr. " + customerName + ", your request is submitted.\n\n";
         alertMessage += "Email: " + customerEmail + "\n";
@@ -451,14 +438,11 @@ document.addEventListener('DOMContentLoaded', function () {
         alertMessage += "Time: " + reservationTime + "\n";
         alertMessage += "Party Size: " + partySize + "\n";
         alertMessage += "Occasion: " + occasion;
-
         alert(alertMessage);
         // Redirect to another page
         window.location.href = '/'; // Replace with your desired URL
     });
 });
-
-
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -469,11 +453,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     });
 });
-
-
-
 const fproducts = document.querySelector(".viewcart");
-
 const futcards = products.slice(14, 22)
 // fproducts.classList.add('s2');
 const viewitemsh = futcards.map((item) => {
@@ -502,14 +482,10 @@ const viewitemsh = futcards.map((item) => {
     
     `
 })
-
 fproducts.innerHTML = viewitemsh.join('');
-
-
 // ====================================================================================================
 // ==============================cart logic hear =======================================================
 const buttons = document.querySelectorAll('.categories button');
-
 // Function to filter products by category
 function filterByCategory(category, button) {
     buttons.forEach(btn => {
@@ -521,24 +497,17 @@ function filterByCategory(category, button) {
             btn.classList.add('category');
         }
     });
-
     const filteredProducts = category === 'All' ? products : products.filter(product => product.category === category);
-
     populateProductList(filteredProducts);
 }
-
 // Call the function with 'All' category on page load
 filterByCategory('All', buttons[0]);
-
-
 const cartno = document.querySelector(".cartno");
-
 // Function to populate the product list
 function populateProductList(productArray) {
     // console.log(productArray);
     const productList = document.querySelector('.m2');
     productList.innerHTML = '';
-
     productArray.forEach(product => {
         const productDiv = document.createElement('div');
         productDiv.classList.add('s2');
@@ -570,24 +539,18 @@ function populateProductList(productArray) {
                 height: 3.5rem;
                 font-size: 1.2rem;
                 border-radius: 0.5rem;
-
             ">View in Cart</button>
         `;
         productList.appendChild(productDiv);
-
         // Check and update button visibility
         checkCartStatus(product.id);
     });
-
     // Reset the sidebar
     updateSidebar();
 }
-
-
 // Function to add item to cart
 function addToCart(productId) {
     let cart = JSON.parse(localStorage.getItem('cart')) || {};
-
     if (cart[productId]) {
         cart[productId].quantity += 1;
     } else {
@@ -596,9 +559,7 @@ function addToCart(productId) {
             quantity: 1
         };
     }
-
     localStorage.setItem('cart', JSON.stringify(cart));
-
     checkCartStatus(productId);
     updateSidebar();
 }
@@ -607,7 +568,6 @@ window.addToCart = addToCart;
 function viewInCart(productId) {
     // Handle navigating to the cart page or showing the cart details
     // ...
-
     checkCartStatus(productId);
     updateSidebar();
 }
@@ -616,7 +576,6 @@ window.viewInCart = viewInCart;
 function checkCartStatus(productId) {
     const cart = JSON.parse(localStorage.getItem('cart')) || {};
     const cartItem = cart[productId];
-
     if (cartItem && cartItem.quantity > 0) {
         document.getElementById(`addToCartBtn${productId}`).style.display = 'none';
         document.getElementById(`viewInCartBtn${productId}`).style.display = 'inline';
@@ -625,47 +584,39 @@ function checkCartStatus(productId) {
         document.getElementById(`viewInCartBtn${productId}`).style.display = 'none';
     }
 }
-
 // Check cart status for each product on page load
 products.forEach(product => {
     checkCartStatus(product.id);
 });
-
 // Call the updateSidebar function on page load
 updateSidebar();
-
 // Function to remove item from the cart
 function removeFromCart(productId) {
     let cart = JSON.parse(localStorage.getItem('cart')) || {};
     delete cart[productId];
     localStorage.setItem('cart', JSON.stringify(cart));
-
     // Update the sidebar
     updateSidebar();
     // Update button visibility in the product list
     updateCartButtons(productId);
 }
-
 // Function to increment quantity of an item in the cart
 function incrementQuantity(productId) {
     let cart = JSON.parse(localStorage.getItem('cart')) || {};
     if (cart[productId] && cart[productId].quantity > 0) {
         cart[productId].quantity += 1;
         localStorage.setItem('cart', JSON.stringify(cart));
-
         // Update the sidebar
         updateSidebar();
     }
 }
 window.incrementQuantity = incrementQuantity;
-
 // Function to decrement quantity of an item in the cart
 function decrementQuantity(productId) {
     let cart = JSON.parse(localStorage.getItem('cart')) || {};
     if (cart[productId] && cart[productId].quantity > 1) {
         cart[productId].quantity -= 1;
         localStorage.setItem('cart', JSON.stringify(cart));
-
         // Update the sidebar
         updateSidebar();
     } else {
@@ -674,17 +625,14 @@ function decrementQuantity(productId) {
     }
 }
 window.decrementQuantity = decrementQuantity;
-
 // Function to calculate the total price of items in the cart
 function calculateTotalPrice(cartItems) {
     return cartItems.reduce((total, item) => total + item.item.price * item.quantity, 0);
 }
-
 // Function to update cart buttons based on cart status
 function updateCartButtons(productId) {
     const cart = JSON.parse(localStorage.getItem('cart')) || {};
     const cartItem = cart[productId];
-
     // Update button visibility
     if (cartItem && cartItem.quantity > 0) {
         document.getElementById(`addToCartBtn${productId}`).style.display = 'none';
@@ -694,7 +642,6 @@ function updateCartButtons(productId) {
         document.getElementById(`viewInCartBtn${productId}`).style.display = 'none';
     }
 }
-
 function carttom() {
     if (menustate == false) {
         menuact();
@@ -702,7 +649,6 @@ function carttom() {
     } else {
         ac_cart();
     }
-
 }
 // Function to update the sidebar with cart items
 function updateSidebar() {
@@ -713,12 +659,10 @@ function updateSidebar() {
     numview.innerText = `${cartItems.length}`;
     // Clear existing cart items
     cartItemsList.innerHTML = '';
-
     if (cartItems.length === 0) {
         const emptyCartMessage = document.createElement('p');
         emptyCartMessage.textContent = 'Your shopping cart is empty.';
         cartItemsList.appendChild(emptyCartMessage);
-
         // Change inner HTML
         emptyCartMessage.innerHTML = `
         <div class="emptycart">
@@ -752,37 +696,162 @@ function updateSidebar() {
         // Update the DOM with the generated content
         cartItemsList.innerHTML = cartHTML.join('');
     }
-
-
     // Calculate and display the total price
     const totalPrice = calculateTotalPrice(cartItems);
     const tprice = document.querySelector(".totalprice");
     tprice.innerHTML = `<i class="uil uil-rupee-sign"></i>${totalPrice}`;
+    tpoio = totalPrice;
 }
 // Call the updateSidebar function on page load
 updateSidebar();
-
-
 // cart bg
 const cartbgpop = document.querySelector(".popupbg");
 const orderbtn = document.querySelector(".order");
-const closepopbtn = document.querySelector(".closepopbtn");
+const closepopbtn = document.querySelector(".popstop");
 const orderpop = document.querySelector(".orderpop");
-
-
 // Show cartbgpop and set scale to 1 on orderbtn click
-orderbtn.addEventListener("click", function () {
+const subt = document.querySelector(".subt");
+const ship = document.querySelector(".ship");
+const tax = document.querySelector(".tax");
+const dicty = document.querySelector(".dicty");
+const tol0 = document.querySelector("#tol0");
+function grandtol() {
+    const subtValue = parseInt(subt.value, 10) || 0; // Convert to integer, default to 0 if not a valid number
+    const shipValue = parseInt(ship.value, 10) || 0;
+    const taxValue = parseInt(tax.value, 10) || 0;
+    const dictyValue = parseInt(dicty.value, 10) || 0;
 
+    const gt = subtValue + shipValue + taxValue - dictyValue;
+    // console.log(gt);
+    tol0.innerHTML = `${gt}`;
+}
+function checkofun(tpoio) {
+    console.log(tpoio);
+    ac_cart();
     cartbgpop.style.display = "flex";
-    setTimeout(() => {
-        orderpop.style.transform = "scale(1)";
-    }, 500);
+    subt.value = `${tpoio}`;
+    subt.innerHTML = `${tpoio}`;
+    ship.value = 55;
+    tax.value = 75;
+    const disco = Math.round(tpoio * 0.20);
+    dicty.value = `${disco}`;
+    dicty.innerHTML = `(${disco})`;
+    grandtol();
+}
+function checkofun2(tpoio) {
+    console.log(tpoio);
+    // ac_cart();
+    cartbgpop.style.display = "flex";
+    subt.value = `${tpoio}`;
+    subt.innerHTML = `${tpoio}`;
+    ship.value = 55;
+    tax.value = 75;
+    const disco = Math.round(tpoio * 0.20);
+    dicty.value = `${disco}`;
+    dicty.innerHTML = `(${disco})`;
+    grandtol();
+}
+orderbtn.addEventListener("click", function () {
+    cartbgpop.style.display = "flex";
+    checkofun2(tpoio);
 });
-
 // Set scale to 0 and hide cartbgpop on closepopbtn click
 closepopbtn.addEventListener("click", function () {
-    orderpop.style.transform = "scale(0)";
-    setTimeout(() => {
-        cartbgpop.style.display = "none";
-    }, 500); // Adjust the timeout duration to match the transition duration
+    // orderpop.style.transform = "scale(0)";
+    cartbgpop.style.display = "none";
 });
+// 
+function openPopup() {
+    var popup = document.getElementById("editPopup");
+    popup.style.display = "block";
+    // Populate the popup with current address values
+    document.getElementById("editAddress").value = document.getElementById("address").innerText;
+    document.getElementById("editApartment").value = document.getElementById("apartment").innerText;
+    document.getElementById("editCity").value = document.getElementById("city").innerText;
+    document.getElementById("editPostalCode").value = document.getElementById("postal_code").innerText;
+    document.getElementById("editMobileNumber").value = document.getElementById("mobile_number").innerText;
+}
+function saveAddress() {
+    // Update the address values with the edited values
+    document.getElementById("address").innerText = document.getElementById("editAddress").value;
+    document.getElementById("apartment").innerText = document.getElementById("editApartment").value;
+    document.getElementById("city").innerText = document.getElementById("editCity").value;
+    document.getElementById("postal_code").innerText = document.getElementById("editPostalCode").value;
+    document.getElementById("mobile_number").innerText = document.getElementById("editMobileNumber").value;
+    // Hide the popup
+    var popup = document.getElementById("editPopup");
+    popup.style.display = "none";
+}
+// 
+
+
+
+const isCashOnDeliverySelected = true; // Change this condition accordingly
+
+// Set the "checked" attribute based on the condition
+document.getElementById("creditcdt1").checked = isCashOnDeliverySelected;
+
+
+
+const creditcdt = document.querySelector('#creditcdt');
+const creditcdt1 = document.querySelector('#creditcdt1');
+const creditcdt2 = document.querySelector('#creditcdt2');
+
+
+function openCreditCardModal() {
+    huii = true;
+    // console.log(huii);
+    if (cdcard.length == 0 && huii == true) {
+        cartdy.style.display = "block";
+        document.getElementById("creditCardModal").style.display = "flex";
+    } else {
+        cartdy.style.display = "block";
+        document.getElementById("creditCardModal").style.display = "none";
+    }
+}
+
+function saveCreditCard() {
+    // Fetch values from the input fields
+    var cardNumber = document.getElementById("cardNumber").value;
+    var expireDate = document.getElementById("expireDate").value;
+    var cvv = document.getElementById("cvv").value;
+    // Create an object with credit card details
+    var creditCardDetails = {
+        cardNumber: cardNumber,
+        expireDate: expireDate,
+        cvv: cvv
+    };
+    // Push the credit card details object to the array
+    cdcard.push(creditCardDetails);
+    cdcard.forEach(cardDetails => {
+        const formattedCardNumber = formatCardNumber(cardDetails.cardNumber);
+        const cardHtml = `
+            <p class=ob>
+            <p id=uio></p>
+            <p id=uio2></p>
+            <h3 id=kop >Credit card</h3>
+            <div class="bottomdi"> 
+            <p>${formattedCardNumber}</p>
+            <p>Good Thru <br> ${cardDetails.expireDate}</p>
+            <p> 
+            <span>CVV</span>
+            <span>${cardDetails.cvv}</span>
+            </p>
+            </div>
+            </p>
+        `;
+        cartdy.innerHTML = cardHtml;
+    })
+    function formatCardNumber(cardNumber) {
+        // Add a space after every 4 digits
+        return cardNumber.replace(/(\d{4})/g, '$1 ').trim();
+    }
+    document.getElementById("creditCardModal").style.display = "none";
+}
+
+function closecty() {
+    cartdy.style.display = "none";
+    huii = false;
+    // console.log(huii);
+    // openCreditCardModal()
+}
