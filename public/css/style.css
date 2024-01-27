@@ -2241,3 +2241,15 @@ label {
     z-index: 99;
     mix-blend-mode: multiply;
 }
+.butyu{
+    text-transform: capitalize;
+    padding: 1rem 4.5rem;
+    background: #493109;
+    color: #f7f7f7;
+    float: right;
+    margin-right: 12rem;
+    font-size: 1.4rem;
+    border: none;
+    outline: none;
+    border-radius: 0.5rem;
+}

@@ -464,7 +464,7 @@ const viewitemsh = futcards.map((item) => {
     <p>${item.title}</p>
     <p>${item.des}</p>
     <p id="price"><i class="uil uil-rupee-sign"></i>${item.price}</p>
-    <button id="hoverm" onclick="menuact()" style="
+    <button id="hoverm" onClick="order(${item.id})" style="
     margin-top: 5%;
     margin-bottom: 5%;
     background: #917373;
@@ -476,7 +476,7 @@ const viewitemsh = futcards.map((item) => {
     border-radius: 0.5rem;
     transition: box-shadow 0.5s;
     " >
-    Visit Menu <i class="uil uil-arrow-right"></i>
+    Order Now <i class="uil uil-arrow-right"></i>
     </button>
     </div>
     
@@ -885,3 +885,7 @@ animitem.addEventListener('complete', () => {
 });
 
 
+document.getElementById('btn3').addEventListener('click', function() {
+    // Navigate to the element with the ID "foot"
+    window.location.href = '#foot';
+});
