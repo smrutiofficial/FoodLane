@@ -1965,7 +1965,8 @@ label {
     background-color: #fff;
     border: 1px solid #ccc;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 99;
+    transform: translateX(-30rem);
+    z-index: 999 !important;
 }
 
 .cdrt {
