@@ -723,7 +723,7 @@ function grandtol() {
 
     const gt = subtValue + shipValue + taxValue - dictyValue;
     // console.log(gt);
-    tol0.innerHTML = `${gt}`;
+    tol0.innerHTML = `<i class="uil uil-rupee-sign"></i> ${gt}`;
 }
 function checkofun(tpoio) {
     console.log(tpoio);
@@ -732,7 +732,9 @@ function checkofun(tpoio) {
     subt.value = `${tpoio}`;
     subt.innerHTML = `${tpoio}`;
     ship.value = 55;
+    ship.innerHTML=`<i class="uil uil-rupee-sign"></i> 55`
     tax.value = 75;
+    tax.innerHTML=`<i class="uil uil-rupee-sign"></i> 75`
     const disco = Math.round(tpoio * 0.20);
     dicty.value = `${disco}`;
     dicty.innerHTML = `(${disco})`;
@@ -743,12 +745,14 @@ function checkofun2(tpoio) {
     // ac_cart();
     cartbgpop.style.display = "flex";
     subt.value = `${tpoio}`;
-    subt.innerHTML = `${tpoio}`;
+    subt.innerHTML = `<i class="uil uil-rupee-sign"></i> ${tpoio}`;
     ship.value = 55;
+    ship.innerHTML=`<i class="uil uil-rupee-sign"></i> 55`
     tax.value = 75;
+    tax.innerHTML=`<i class="uil uil-rupee-sign"></i> 75`
     const disco = Math.round(tpoio * 0.20);
     dicty.value = `${disco}`;
-    dicty.innerHTML = `(${disco})`;
+    dicty.innerHTML = `(<i class="uil uil-rupee-sign"></i> ${disco})`;
     grandtol();
 }
 orderbtn.addEventListener("click", function () {
