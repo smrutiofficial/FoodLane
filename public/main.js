@@ -855,3 +855,33 @@ function closecty() {
     // console.log(huii);
     // openCreditCardModal()
 }
+
+const playani = document.querySelector('.paybut');
+
+const svgwraper = document.querySelector('.svgwraper');
+
+const animitem = bodymovin.loadAnimation({
+    wrapper: svgwraper,
+    animType: 'svg',
+    loop: false,
+    autoplay: false,
+    path: 'https://lottie.host/5e626a2b-e17c-4ef6-bde7-bea638f48e38/jBcnMo5Kcd.json'
+});
+
+
+
+playani.addEventListener('click', () => {
+    svgwraper.style.display = 'block';
+    animitem.goToAndPlay(0, true)
+});
+
+// Add a listener for animation complete event
+animitem.addEventListener('complete', () => {
+    // Remove the element containing the animation from the DOM
+    svgwraper.style.display = 'none';
+    cartbgpop.style.display = "none";
+    ac_cart();
+    menuact();
+});
+
+

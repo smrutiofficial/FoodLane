@@ -54,7 +54,7 @@
 
 
 
-    
+
 
 
 
@@ -100,135 +100,140 @@
         </div>
 
         <div class="popupbg">
-        <!-- ----------------------------------------------- -->
-        <div class="payment_page">
-            <div class="contz">
-                <div class="address_pay">
-                    <img src="./src/ft2.png" alt="" class="shopck" />
-                    <h1 id="hcen">Checkout</h1>
-                    <div class="chu">
-                        <div class="fcerow">
-                            <h3>Billing Address</h3>
-                            <button class="add_address_btn" onclick="openPopup()"><i class="uil uil-edit"></i> Edit</button>
-                        </div>
-    
-                        <div class="addr">
-    
-                            <li class="gyj">
-                                <strong>Address</strong> <span id="address">Salipur</span><br>
-                            </li>
-                            <li class="gyj">
-                                <strong>Apartment/Unit</strong> <span id="apartment">Ipt road</span><br>
-                            </li>
-                            <li class="gyj">
-                                <strong>City</strong> <span id="city">Cuttack</span><br>
-                            </li>
-                            <li class="gyj">
-                                <strong>Postal Code (PIN)</strong> <span id="postal_code">754202</span><br>
-                            </li>
-                            <li class="gyj">
-                                <strong>Mobile Number</strong> <span id="mobile_number">9696364512</span>
-                            </li>
-    
-                        </div>
-    
-                        <div class="popup" id="editPopup">
-                            <h2>Edit Address</h2>
-                            <div class="flyu">
-                                <div class="fllll">
-                                    <div class="kl">
-                                        <label for="editAddress">Address:</label>
-                                        <input type="text" id="editAddress" placeholder="Enter address">
-                                    </div>
-                                    <div class="kl">
-                                        <label for="editCity">City:</label>
-                                        <input type="text" id="editCity" placeholder="Enter city">
-                                    </div>
-                                </div>
-                                <div class="fllll">
-                                    <div class="kl">
-                                        <label for="editApartment">Road:</label>
-                                        <input type="text" id="editApartment" placeholder="Enter apartment/unit">
-                                    </div>
-    
-                                    <div class="kl">
-                                        <label for="editPostalCode">PIN:</label>
-                                        <input type="text" id="editPostalCode" placeholder="Enter postal code">
-                                    </div>
-                                </div>
-                                <div class="kl">
-                                    <label for="editMobileNumber">Mobile Number:</label>
-                                    <input type="text" id="editMobileNumber" placeholder="Enter mobile number">
-                                </div>
+            <!-- ----------------------------------------------- -->
+            <div class="payment_page">
+                <div class="svgwraper"></div>
+                <div class="contz">
+                    <div class="address_pay">
+                        <img src="./src/ft2.png" alt="" class="shopck" />
+                        <h1 id="hcen">Checkout</h1>
+                        <div class="chu">
+                            <div class="fcerow">
+                                <h3>Billing Address</h3>
+                                <button class="add_address_btn" onclick="openPopup()"><i class="uil uil-edit"></i>
+                                    Edit</button>
                             </div>
-    
-                            <button class="save_btn btns46" onclick="saveAddress()">Save</button>
-                        </div>
-    
-                        <!-- Payment Method Selectors -->
-                        <div class="payment_methods">
-                            <label>
-                                <input id="creditcdt1" type="radio" name="paymentMethod" value="cashOnDelivery"
-                                    onchange="closecty()" checked>
-                                Cash on Delivery
-                            </label>
-                            <label>
-                                <input id="creditcdt2" type="radio" name="paymentMethod" value="paypal"
-                                    onchange="closecty()">
-                                PayPal
-                            </label>
-                            <label>
-                                <input id="creditcdt" type="radio" name="paymentMethod" value="creditCard"
-                                    onchange="openCreditCardModal()">
-                                Credit Card
-                            </label>
-                        </div>
-                        <div class="cdrt">
-                            <!-- credit card -->
-                        </div>
-                        <!--  -->
-                        <!-- Modal for Credit Card details -->
-                        <div class="modal" id="creditCardModal">
-                            <h2>Enter Credit Card Details</h2>
-                            <label for="cardNumber">Card Number:</label>
-                            <input type="text" id="cardNumber" placeholder="Enter card number">
-    
-                            <label for="expireDate">Expiration Date:</label>
-                            <input type="text" id="expireDate" placeholder="MM/YYYY">
-    
-                            <label for="cvv">CVV Number:</label>
-                            <input type="text" id="cvv" placeholder="Enter CVV number">
-    
-                            <button class="njk" onclick="saveCreditCard()">Save Card</button>
-                        </div>
-                        <div class="btns45">
-                            <button class="popstop">Back</button>
-                            <button type="button" onclick="processPayment()">Continue to Pay</button>
+
+                            <div class="addr">
+
+                                <li class="gyj">
+                                    <strong>Address</strong> <span id="address">Salipur</span><br>
+                                </li>
+                                <li class="gyj">
+                                    <strong>Apartment/Unit</strong> <span id="apartment">Ipt road</span><br>
+                                </li>
+                                <li class="gyj">
+                                    <strong>City</strong> <span id="city">Cuttack</span><br>
+                                </li>
+                                <li class="gyj">
+                                    <strong>Postal Code (PIN)</strong> <span id="postal_code">754202</span><br>
+                                </li>
+                                <li class="gyj">
+                                    <strong>Mobile Number</strong> <span id="mobile_number">9696364512</span>
+                                </li>
+
+                            </div>
+
+                            <div class="popup" id="editPopup">
+                                <h2>Edit Address</h2>
+                                <div class="flyu">
+                                    <div class="fllll">
+                                        <div class="kl">
+                                            <label for="editAddress">Address:</label>
+                                            <input type="text" id="editAddress" placeholder="Enter address">
+                                        </div>
+                                        <div class="kl">
+                                            <label for="editCity">City:</label>
+                                            <input type="text" id="editCity" placeholder="Enter city">
+                                        </div>
+                                    </div>
+                                    <div class="fllll">
+                                        <div class="kl">
+                                            <label for="editApartment">Road:</label>
+                                            <input type="text" id="editApartment" placeholder="Enter apartment/unit">
+                                        </div>
+
+                                        <div class="kl">
+                                            <label for="editPostalCode">PIN:</label>
+                                            <input type="text" id="editPostalCode" placeholder="Enter postal code">
+                                        </div>
+                                    </div>
+                                    <div class="kl">
+                                        <label for="editMobileNumber">Mobile Number:</label>
+                                        <input type="text" id="editMobileNumber" placeholder="Enter mobile number">
+                                    </div>
+                                </div>
+
+                                <button class="save_btn btns46" onclick="saveAddress()">Save</button>
+                            </div>
+
+                            <!-- Payment Method Selectors -->
+                            <div class="payment_methods">
+                                <label>
+                                    <input id="creditcdt1" type="radio" name="paymentMethod" value="cashOnDelivery"
+                                        onchange="closecty()" checked>
+                                    Cash on Delivery
+                                </label>
+                                <label>
+                                    <input id="creditcdt2" type="radio" name="paymentMethod" value="paypal"
+                                        onchange="closecty()">
+                                    PayPal
+                                </label>
+                                <label>
+                                    <input id="creditcdt" type="radio" name="paymentMethod" value="creditCard"
+                                        onchange="openCreditCardModal()">
+                                    Credit Card
+                                </label>
+                            </div>
+                            <div class="cdrt">
+                                <!-- credit card -->
+                            </div>
+                            <!--  -->
+                            
+                            <!-- Modal for Credit Card details -->
+                            <div class="modal" id="creditCardModal">
+                                <h2>Enter Credit Card Details</h2>
+                                <label for="cardNumber">Card Number:</label>
+                                <input type="text" id="cardNumber" placeholder="Enter card number">
+
+                                <label for="expireDate">Expiration Date:</label>
+                                <input type="text" id="expireDate" placeholder="MM/YYYY">
+
+                                <label for="cvv">CVV Number:</label>
+                                <input type="text" id="cvv" placeholder="Enter CVV number">
+
+                                <button class="njk" onclick="saveCreditCard()">Save Card</button>
+                            </div>
+                           
+                            <div class="btns45">
+                                <button class="popstop">Back</button>
+                                <button type="button" class="paybut">Continue to Pay</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-    
-                <div class="summry">
-                    <div class="congyu">
-                        <h3 class="ni2">Order summary</h3>
-                        <br>
-                        <p class="tex"><span id="bold">subtotal</span><span class="subt">3456</span></p>
-                        <p class="tex"><span id="bold">Shipping</span><span class="ship">55</span></p>
-                        <p class="tex"><span id="bold">Taxes</span>   <span class="tax">75</span></p>
-                        <p class="tex"><span id="bold">Discount</span><span id="dis">-20% <span class="dicty">(691)</span></span></p>
-                        <br>
-                        <li class="linet"></li>
-    
-                        <p class="tex ni"><span id="bold">Grand Total</span><span id="tol0">2895</span></p>
-    
-                        <li class="linet"></li>
+
+                    <div class="summry">
+                        <div class="congyu">
+                            <h3 class="ni2">Order summary</h3>
+                            <br>
+                            <p class="tex"><span id="bold">subtotal</span><span class="subt">3456</span></p>
+                            <p class="tex"><span id="bold">Shipping</span><span class="ship">55</span></p>
+                            <p class="tex"><span id="bold">Taxes</span> <span class="tax">75</span></p>
+                            <p class="tex"><span id="bold">Discount</span><span id="dis">-20% <span
+                                        class="dicty">(691)</span></span></p>
+                            <br>
+                            <li class="linet"></li>
+
+                            <p class="tex ni"><span id="bold">Grand Total</span><span id="tol0">2895</span></p>
+
+                            <li class="linet"></li>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    
-        <!-- ==================================================== -->
-      
+
+            <!-- ==================================================== -->
+
         </div>
         <div class="cartbtnarea">
             <div class="cart_btns">
@@ -536,6 +541,9 @@
             </div>
         </div>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"
+        integrity="sha512-jEnuDt6jfecCjthQAJ+ed0MTVA++5ZKmlUcmDGBv2vUI/REn6FuIdixLNnQT+vKusE2hhTk2is3cFvv5wA+Sgg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/2f9de29a88.js" crossorigin="anonymous"></script>
     <script src="main.js"></script>

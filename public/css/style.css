@@ -2231,3 +2231,13 @@ label {
     color: rgb(18, 167, 18);
     font-weight: 500;
 }
+.svgwraper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 25rem;
+    height: 20rem;
+    z-index: 99;
+    mix-blend-mode: multiply;
+}
